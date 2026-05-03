@@ -135,19 +135,6 @@ python selfeval/scripts/run_eval_pipeline.py \
 
 For TruthfulQA / CommonsenseQA / MATH-500 we do **not** redistribute original question text. Please obtain the original datasets from their official sources and use the scripts in `selfeval/` to reconstruct the evaluation splits.
 
-## Citation
-
-See `CITATION.cff`. For now (under review, anonymized):
-
-```bibtex
-@misc{selfeval-diagnostics-2026,
-  title        = {Evaluating LLM Self-Evaluation: A Calibration-Constrained Benchmark and Diagnostic Protocol},
-  author       = {Anonymous},
-  year         = {2026},
-  note         = {Under review, NeurIPS 2026 Evaluations \& Datasets Track}
-}
-```
-
 ## License
 
 Math-360 original questions and solutions are released under **CC-BY-4.0**.
