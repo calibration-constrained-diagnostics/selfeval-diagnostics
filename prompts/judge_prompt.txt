@@ -1,0 +1,41 @@
+=== Judge-ensemble reference-labeling prompt ===
+This is the prompt used for each of the three judges (Claude 3.7 Sonnet, Amazon Nova Premier, DeepSeek-R1). Each judge answers independently; the reference preference is the majority vote.
+
+SYSTEM:
+You are an expert mathematics evaluator. Your task is to carefully evaluate two different solutions to the same mathematical problem and determine which solution is superior in terms of correctness, clarity, and mathematical rigor.
+
+USER:
+Please analyze the following mathematical problem and two proposed solutions:
+
+PROBLEM:
+{problem}
+
+REFERENCE ANSWER:
+{reference_answer}
+
+SOLUTION A:
+{solution_a}
+
+SOLUTION B:
+{solution_b}
+
+INSTRUCTIONS:
+1. Carefully evaluate both solutions for mathematical correctness.
+2. Identify any errors or flaws in either solution.
+3. Determine which solution is of higher quality overall.
+4. Provide your reasoning process.
+5. Assign a confidence score (0-100) reflecting your certainty in this assessment.
+
+Please format your response using these exact tags:
+<ANALYSIS>
+Your detailed analysis of both solutions
+</ANALYSIS>
+
+<WINNER>A or B only - Do not include any explanations</WINNER>
+<SCORE>Your confidence score (0-100)</SCORE>
+
+PROTOCOL NOTES:
+- Presentation order (A vs.\ B) is randomized per pair; see configs/decoding.yaml for seeds.
+- Each of the three judges is queried independently; the majority vote is the reference preference.
+- Invalid/missing judge responses (<0.4% of samples) are excluded from the aggregate.
+- Judges have access to the reference answer; the target model does not.

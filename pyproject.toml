@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "selfeval-diagnostics"
+version = "1.0.0"
+description = "Calibration-constrained diagnostic evaluation package for LLM self-evaluation reliability."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Anonymous" }]
+keywords = [
+  "LLM",
+  "evaluation",
+  "calibration",
+  "self-evaluation",
+  "PVC",
+  "NeurIPS 2026",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+]
+dependencies = [
+  "numpy",
+  "pandas",
+  "scipy",
+  "scikit-learn",
+  "matplotlib",
+  "seaborn",
+  "pyyaml",
+]
+
+[project.optional-dependencies]
+judges = [
+  "boto3",
+]
+hf = [
+  "torch",
+  "transformers",
+  "accelerate",
+]
+
+[project.scripts]
+selfeval-metrics = "selfeval.scripts.compute_pvc_cpvc:main"
+selfeval-cross = "selfeval.scripts.compute_cross_dataset:main"
+selfeval-run = "selfeval.scripts.run_eval_pipeline:main"
+
+[tool.setuptools.packages.find]
+include = ["selfeval", "selfeval.*"]

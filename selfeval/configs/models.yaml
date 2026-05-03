@@ -1,0 +1,80 @@
+# Target models evaluated in the paper.
+# Use together with selfeval/scripts/run_eval_pipeline.py for Level-3 reproduction.
+
+target_models:
+  - id: qwen2.5-7b
+    hf_name: Qwen/Qwen2.5-7B
+    family: qwen
+    tier: 7B
+    training: pretrain
+  - id: qwen2.5-7b-instruct
+    hf_name: Qwen/Qwen2.5-7B-Instruct
+    family: qwen
+    tier: 7B
+    training: sft+rl
+  - id: qwen2.5-math-7b-instruct
+    hf_name: Qwen/Qwen2.5-Math-7B-Instruct
+    family: qwen
+    tier: 7B
+    training: sft+rl
+  - id: llama-3.1-8b-instruct
+    hf_name: meta-llama/Llama-3.1-8B-Instruct
+    family: llama
+    tier: 8B
+    training: sft+dpo
+  - id: openthinker2-7b
+    hf_name: open-thoughts/OpenThinker2-7B
+    family: openthoughts
+    tier: 7B
+    training: sft
+  - id: deepseek-r1-distill-qwen-7b
+    hf_name: deepseek-ai/DeepSeek-R1-Distill-Qwen-7B
+    family: deepseek
+    tier: 7B
+    training: distill
+  - id: bespoke-stratos-7b
+    hf_name: bespokelabs/Bespoke-Stratos-7B
+    family: bespoke
+    tier: 7B
+    training: sft
+  - id: jiuzhang3.0-7b
+    hf_name: tongyx361/JiuZhang3.0-7B
+    family: jiuzhang
+    tier: 7B
+    training: sft
+  - id: ministral-8b-instruct-2410
+    hf_name: mistralai/Ministral-8B-Instruct-2410
+    family: mistral
+    tier: 8B
+    training: sft+rl
+  - id: open-reasoner-zero-7b
+    hf_name: Open-Reasoner-Zero/Open-Reasoner-Zero-7B
+    family: orz
+    tier: 7B
+    training: rl
+  - id: s1.1-7b
+    hf_name: simplescaling/s1.1-7B
+    family: s1
+    tier: 7B
+    training: sft
+  - id: qwen2.5-32b-instruct
+    hf_name: Qwen/Qwen2.5-32B-Instruct
+    family: qwen
+    tier: 32B
+    training: sft+rl
+  - id: claude-3.5-haiku
+    bedrock_id: anthropic.claude-3-5-haiku-20241022-v1:0
+    family: claude
+    tier: proprietary
+    training: proprietary
+
+judges:
+  - id: claude-3.7-sonnet
+    bedrock_id: us.anthropic.claude-3-7-sonnet-20250219-v1:0
+    role: judge_1
+  - id: amazon-nova-premier
+    bedrock_id: us.amazon.nova-premier-v1:0
+    role: judge_2
+  - id: deepseek-r1
+    bedrock_id: us.deepseek.r1-v1:0
+    role: judge_3

@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+*.egg-info/
+build/
+dist/
+
+# Environments / local
+.env
+.venv/
+venv/
+env/
+*.log
+
+# Identity-sensitive runtime artifacts (NEVER commit)
+wandb/
+outputs/raw_api_logs/
+.credentials*
+credentials.json
+aws-credentials*
+config.ini
+*.pem
+.ssh/
+.aws/
+
+# Reproduction outputs (regenerate from released inputs)
+reproduce/outputs/
+
+# macOS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp

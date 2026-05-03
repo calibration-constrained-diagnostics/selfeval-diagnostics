@@ -1,0 +1,131 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "data": "cr:data",
+    "dataType": "cr:dataType",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "rai": "http://mlcommons.org/croissant/RAI/"
+  },
+  "@type": "sc:Dataset",
+  "name": "llm-self-evaluation-diagnostics",
+  "version": "1.0.0",
+  "description": "Complete diagnostic evaluation package for LLM self-evaluation reliability. Includes Math-360 (controlled diagnostic testbed), processed cross-domain category splits, prompts, reference labels from a three-judge LLM ensemble, released model outputs, and diagnostic metric code.",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://example.org/selfeval-diagnostics-anon",
+  "citeAs": "Anonymous (2026). Evaluating LLM Self-Evaluation: A Calibration-Constrained Benchmark and Diagnostic Protocol. Under review.",
+  "keywords": [
+    "LLM evaluation",
+    "self-evaluation",
+    "calibration",
+    "probabilistic VC",
+    "benchmark",
+    "NeurIPS 2026 Evaluations and Datasets Track"
+  ],
+  "rai:dataCollection": "Math-360 questions authored by the paper's authors. Cross-domain metadata derived from public datasets (TruthfulQA, CommonsenseQA, MATH-500) under their respective licenses; original question text is not redistributed here. Reference labels generated from a three-judge LLM ensemble.",
+  "rai:dataCollectionType": "authors",
+  "rai:dataCollectionTimeframe": "2025",
+  "rai:dataAnnotationProtocol": "Three independent LLM judges (Claude 3.7 Sonnet, Amazon Nova Premier, DeepSeek-R1) return pairwise preferences with reference-answer access; majority vote is the reference preference. Invalid responses (<0.4%) are excluded.",
+  "rai:dataPreprocessingProtocol": "Stratified sampling per category for TruthfulQA / CommonsenseQA (10 categories × 24 questions = 240 per testbed). Category mappings released without original question text.",
+  "rai:dataUseCases": "Diagnosing whether LLM-reported confidence is reliable enough for confidence-gated downstream decisions; comparing models under a fixed reference signal.",
+  "rai:dataLimitations": "LLM-judge reference is a fixed comparative signal, not oracle ground truth. Controlled testbed size (360 items) is not a general-purpose leaderboard. Proprietary judge outputs may drift with vendor updates.",
+  "rai:dataSocialImpact": "Intended to support responsible evaluation of confidence-gated LLM decisions. Should not be used to certify deployment safety or as a general-purpose leaderboard.",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "math360-questions",
+      "name": "math360-questions",
+      "contentUrl": "data/math360/questions.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "md5": "TBD"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "truthfulqa-categories",
+      "name": "truthfulqa-categories",
+      "contentUrl": "data/cross_domain/truthfulqa_categories.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "md5": "TBD"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "commonsenseqa-categories",
+      "name": "commonsenseqa-categories",
+      "contentUrl": "data/cross_domain/commonsenseqa_categories.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "md5": "TBD"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "reference-labels",
+      "name": "reference-labels",
+      "encodingFormat": "application/jsonlines",
+      "includes": "reference_labels/*.jsonl"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "model-outputs",
+      "name": "model-outputs",
+      "encodingFormat": "text/csv",
+      "includes": "model_outputs/*.csv"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "math360-records",
+      "name": "math360-records",
+      "description": "Math-360 original problems used as the controlled diagnostic testbed.",
+      "field": [
+        { "@type": "cr:Field", "name": "id", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "problem", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "answer", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "category", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "subcategory", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "difficulty", "dataType": "sc:Text" }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "reference-label-records",
+      "name": "reference-label-records",
+      "description": "Per-pair reference labels (majority vote across three LLM judges) and the target model's self-selection and confidence.",
+      "field": [
+        { "@type": "cr:Field", "name": "example_id", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "dataset", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "model_id", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "target_selected", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "target_confidence", "dataType": "sc:Float" },
+        { "@type": "cr:Field", "name": "judge_1_vote", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "judge_2_vote", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "judge_3_vote", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "majority_reference", "dataType": "sc:Text" },
+        { "@type": "cr:Field", "name": "agreement_type", "dataType": "sc:Text" }
+      ]
+    }
+  ]
+}

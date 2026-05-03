@@ -1,0 +1,33 @@
+=== Target-model self-selection prompt ===
+SYSTEM:
+You are an expert mathematics evaluator. Your task is to carefully evaluate two different solutions to the same mathematical problem and determine which solution is superior in terms of correctness, clarity, and mathematical rigor.
+
+USER:
+Please analyze the following mathematical problem and two proposed solutions:
+
+PROBLEM:
+{problem}
+
+SOLUTION A:
+{solution_a}
+
+SOLUTION B:
+{solution_b}
+
+INSTRUCTIONS:
+1. Carefully evaluate both solutions for mathematical correctness.
+2. Identify any errors or flaws in either solution.
+3. Determine which solution is of higher quality overall.
+4. Provide your reasoning process.
+5. Assign a confidence score (0-100) reflecting your certainty in this assessment.
+
+Please format your response using these exact tags:
+<ANALYSIS>
+Your detailed analysis of both solutions
+</ANALYSIS>
+
+<WINNER>A or B only - Do not include any explanations</WINNER>
+<SCORE>Your confidence score (0-100)</SCORE>
+
+NOTE:
+The target model does not have access to the reference answer or to the judge-reference preference. This prompt is used both for the target model's self-selection (no reference_answer field) and for the judge ensemble (reference_answer is provided to judges only; see judge_prompt.txt).

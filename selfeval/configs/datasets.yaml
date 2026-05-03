@@ -1,0 +1,49 @@
+# Dataset inventory for the diagnostic evaluation package.
+
+datasets:
+  - id: math360
+    role: controlled_diagnostic_testbed
+    description: |
+      360 original math problems across 8 domains with balanced difficulty and
+      subcategory structure. Supporting role only; not a standalone
+      general-purpose math leaderboard.
+    questions: data/math360/questions.jsonl
+    n_questions: 360
+    domains: 8
+    subcategories_per_domain: 5
+    difficulty_levels: [easy, medium, hard]
+    release: full
+    license: CC-BY-4.0
+
+  - id: truthfulqa
+    role: cross_domain_validation
+    description: |
+      Processed category splits for TruthfulQA used for cross-domain
+      validation of the diagnostic protocol. We release category mappings
+      and derived evaluation outputs; the original question text must be
+      obtained from the upstream source under its license.
+    category_mapping: data/cross_domain/truthfulqa_categories.jsonl
+    n_questions: 240
+    categories: 10
+    release: ids_and_derived_metadata
+    upstream: https://github.com/sylinrl/TruthfulQA
+
+  - id: commonsenseqa
+    role: cross_domain_validation
+    description: |
+      Processed category splits for CommonsenseQA used for cross-domain
+      validation. Same release policy as truthfulqa.
+    category_mapping: data/cross_domain/commonsenseqa_categories.jsonl
+    n_questions: 240
+    categories: 10
+    release: ids_and_derived_metadata
+    upstream: https://www.tau-nlp.sites.tau.ac.il/commonsenseqa
+
+  - id: math500
+    role: cross_domain_validation
+    description: |
+      Additional cross-domain validation on MATH-500 (full set). Same
+      release policy as truthfulqa.
+    n_questions: 500
+    release: ids_and_derived_metadata
+    upstream: https://huggingface.co/datasets/HuggingFaceH4/MATH-500

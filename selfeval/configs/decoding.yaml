@@ -1,0 +1,28 @@
+# Decoding / judging configuration used to produce the released outputs.
+# These values must match the paper (Appendix P, Table "Experimental
+# configuration").
+
+solution_generation:
+  temperature: 0.7
+  top_p: 0.9
+  max_tokens: 4096
+  solutions_per_problem: 2
+
+self_selection:
+  presentation_order: randomized
+  confidence_scale: "0-100"
+  reference_label_access: none
+
+judge_ensemble:
+  judges:
+    - claude-3.7-sonnet
+    - amazon-nova-premier
+    - deepseek-r1
+  aggregation: majority
+  invalid_response_handling: exclude
+  invalid_response_fraction_cap: 0.004
+
+randomness:
+  default_seed: 13579
+  label_perturbation_seeds: [101, 102, 103, 104, 105]
+  alternative_categorization_seeds: [201, 202, 203]

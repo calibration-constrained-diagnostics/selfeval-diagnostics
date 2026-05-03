@@ -1,0 +1,14 @@
+# Pointer file: which prompt text each pipeline stage loads from prompts/.
+
+candidate_generation:
+  A: prompts/candidate_generation_prompt_A.txt
+  B: prompts/candidate_generation_prompt_B.txt
+
+self_selection: prompts/self_selection_prompt.txt
+
+judge_reference_labeling: prompts/judge_prompt.txt
+
+parser:
+  winner_regex: "<WINNER>\\s*([AB])\\s*</WINNER>"
+  score_regex: "<SCORE>\\s*(\\d+)\\s*</SCORE>"
+  max_retries: 5
