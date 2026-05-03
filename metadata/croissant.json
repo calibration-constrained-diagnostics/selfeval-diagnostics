@@ -36,14 +36,13 @@
   "version": "1.0.0",
   "description": "Complete diagnostic evaluation package for LLM self-evaluation reliability. Includes Math-360 (controlled diagnostic testbed), processed cross-domain category splits, prompts, reference labels from a three-judge LLM ensemble, released model outputs, and diagnostic metric code.",
   "license": "https://creativecommons.org/licenses/by/4.0/",
-  "url": "https://example.org/selfeval-diagnostics-anon",
-  "citeAs": "Anonymous (2026). Evaluating LLM Self-Evaluation: A Calibration-Constrained Benchmark and Diagnostic Protocol. Under review.",
+  "url": "https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics",
+  "citeAs": "Anonymous (2026). Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics. Under review at NeurIPS 2026 Evaluations and Datasets Track.",
   "keywords": [
     "LLM evaluation",
     "self-evaluation",
     "calibration",
     "probabilistic VC",
-    "benchmark",
     "NeurIPS 2026 Evaluations and Datasets Track"
   ],
   "rai:dataCollection": "Math-360 questions authored by the paper's authors. Cross-domain metadata derived from public datasets (TruthfulQA, CommonsenseQA, MATH-500) under their respective licenses; original question text is not redistributed here. Reference labels generated from a three-judge LLM ensemble.",
@@ -61,7 +60,7 @@
       "name": "math360-questions",
       "contentUrl": "data/math360/questions.jsonl",
       "encodingFormat": "application/jsonlines",
-      "md5": "TBD"
+      "md5": "ba633bca085f15257411c901b26a3272"
     },
     {
       "@type": "cr:FileObject",
@@ -69,7 +68,7 @@
       "name": "truthfulqa-categories",
       "contentUrl": "data/cross_domain/truthfulqa_categories.jsonl",
       "encodingFormat": "application/jsonlines",
-      "md5": "TBD"
+      "md5": "95068712d7069e7ff4ad2a380e3cbd4a"
     },
     {
       "@type": "cr:FileObject",
@@ -77,7 +76,7 @@
       "name": "commonsenseqa-categories",
       "contentUrl": "data/cross_domain/commonsenseqa_categories.jsonl",
       "encodingFormat": "application/jsonlines",
-      "md5": "TBD"
+      "md5": "84a51518f9108d075e2734a2ca1e78fc"
     },
     {
       "@type": "cr:FileSet",

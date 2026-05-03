@@ -1,10 +1,9 @@
-# LLM Self-Evaluation Diagnostics — Evaluation Package
+# Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics
 
-This repository releases the **complete diagnostic evaluation package** for the paper
+**Anonymous repository for double-blind review:**
+`https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics`
 
-> *Evaluating LLM Self-Evaluation: A Calibration-Constrained Benchmark and Diagnostic Protocol.*
-
-It is intended to accompany a NeurIPS 2026 Evaluations & Datasets Track submission. The released artifact is **not a single dataset**: it is a reusable evaluation protocol, diagnostic metrics, a controlled diagnostic testbed (Math-360), cross-domain metadata, reference labels, and reproduction scripts, together with a dataset/evaluation card and Croissant metadata.
+This repository releases the **complete diagnostic evaluation package** accompanying the NeurIPS 2026 Evaluations & Datasets Track submission of the same title. The released artifact is **not a single dataset**: it is a reusable evaluation protocol, diagnostic metrics, a controlled diagnostic testbed (Math-360), cross-domain metadata, judge-reference labels, and reproduction scripts, together with a dataset/evaluation card and Croissant metadata.
 
 ## What this artifact is / is not
 
@@ -30,7 +29,6 @@ Math-360 is a **controlled diagnostic testbed**, not a standalone general-purpos
 selfeval_diagnostics/
 ├── README.md                    ← you are here
 ├── LICENSE                      ← license for the package
-├── CITATION.cff                 ← preferred citation
 ├── requirements.txt             ← Python dependencies
 ├── pyproject.toml               ← installable selfeval package
 │
@@ -134,6 +132,10 @@ python selfeval/scripts/run_eval_pipeline.py \
 | MATH-500 | cross-domain validation | derived evaluation outputs only |
 
 For TruthfulQA / CommonsenseQA / MATH-500 we do **not** redistribute original question text. Please obtain the original datasets from their official sources and use the scripts in `selfeval/` to reconstruct the evaluation splits.
+
+## Citation
+
+The accompanying paper is currently under double-blind review. Citation information will be added upon acceptance.
 
 ## License
 

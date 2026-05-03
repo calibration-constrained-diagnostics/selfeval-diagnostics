@@ -1,7 +1,10 @@
-# Anonymous Code Release — Reviewer Entry Point
+# Reviewer Entry Point — Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics
+
+**Anonymous repository URL:**
+`https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics`
 
 This repository accompanies the anonymous submission
-*Evaluating LLM Self-Evaluation: A Calibration-Constrained Benchmark and Diagnostic Protocol*
+*Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics*
 to the NeurIPS 2026 Evaluations & Datasets Track.
 
 The repository is anonymized for double-blind review. Author identities,
@@ -28,11 +31,11 @@ for the evaluation protocol specification. Release policy is documented in
 
 ## Anonymity notes
 
-- `LICENSE` and `CITATION.cff` list the author as *Anonymous Authors*.
-- `metadata/croissant.json` uses a placeholder URL.
-- Git commit history (if present) uses `Anonymous Authors <anonymous@example.com>`.
-- No author names, emails, affiliations, institutional paths, GitHub / Hugging
-  Face usernames, CI badges, or internal hostnames appear anywhere in this tree.
+- `LICENSE` uses a placeholder author identifier; citation information is omitted during review.
+- `metadata/croissant.json` uses the anonymous repository URL as `url`; a persistent DOI will replace it at camera-ready.
+- Git commit history uses `Anonymous Authors <anonymous@example.com>`.
+- No author names, emails, affiliations, institutional paths, personal GitHub
+  usernames, CI badges, or internal hostnames appear anywhere in this tree.
 - Upstream dataset URLs (`sylinrl/TruthfulQA`, `HuggingFaceH4/MATH-500`) are
   the only external references and are unrelated to author identity.
 

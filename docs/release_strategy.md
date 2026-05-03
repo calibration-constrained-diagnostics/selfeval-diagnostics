@@ -80,7 +80,7 @@ git commit -m "Initial anonymous release"
 
 The following items must all pass before submission:
 
-- [ ] No author names, emails, affiliations in any file (README, CITATION.cff,
+- [ ] No author names, emails, affiliations in any file (README,
       pyproject.toml, LICENSE, configs, notebooks, scripts, docs).
 - [ ] No absolute paths like `/Users/<name>/` or `/home/<name>/`.
 - [ ] No personal GitHub usernames (upstream dataset URLs are
@@ -90,15 +90,15 @@ The following items must all pass before submission:
 - [ ] No wandb project URLs, S3 bucket names, internal hostnames.
 - [ ] Git commit history uses `Anonymous Authors <anonymous@example.com>`.
 - [ ] Jupyter notebooks have no execution metadata referencing a username.
-- [ ] `LICENSE` and `CITATION.cff` list the author as "Anonymous" during review.
+- [ ] `LICENSE` uses a placeholder author identifier during review; no separate citation file is shipped.
 
 ## 7. Post-acceptance plan
 
 - Transfer (or rename) the anonymous GitHub repository to the author's public org.
 - Mint a Zenodo DOI (or Harvard Dataverse record) for an archival snapshot.
 - Freeze a `v1.0` tag on the repository.
-- Update `README.md`, `CITATION.cff`, `metadata/croissant.json`, and the paper
-  with the final author list and DOIs.
+- Add a `CITATION.cff` with the final author list, and update `README.md`,
+  `metadata/croissant.json`, and the paper with the DOIs and author information.
 
 ## 8. Paper wording during review
 
