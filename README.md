@@ -1,7 +1,7 @@
 # Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics
 
 **Anonymous repository for double-blind review:**
-`https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics`
+`https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics/`
 
 This repository releases the **complete diagnostic evaluation package** accompanying the NeurIPS 2026 Evaluations & Datasets Track submission of the same title. The released artifact is **not a single dataset**: it is a reusable evaluation protocol, diagnostic metrics, a controlled diagnostic testbed (Math-360), cross-domain metadata, judge-reference labels, and reproduction scripts, together with a dataset/evaluation card and Croissant metadata.
 
@@ -70,15 +70,17 @@ selfeval_diagnostics/
 │   │   ├── datasets.yaml
 │   │   ├── decoding.yaml
 │   │   └── prompts.yaml
-│   ├── scripts/
-│   │   ├── run_eval_pipeline.py        ← Level 3: full generation + judge labeling
-│   │   ├── compute_pvc_cpvc.py         ← PVC / C-PVC / VUS / PM-VUS
-│   │   └── compute_cross_dataset.py    ← cross-dataset aggregation
-│   └── notebooks/
+│   └── scripts/
+│       ├── run_eval_pipeline.py        ← Level 3: full generation + judge labeling
+│       ├── compute_pvc_cpvc.py         ← PVC / C-PVC / VUS / PM-VUS
+│       └── compute_cross_dataset.py    ← cross-dataset aggregation
 │
 ├── reproduce/
+│   ├── reproduce_main_tables.py        ← Level 1: all paper tables + figures
 │   ├── build_reference_labels.py       ← model_outputs CSV → reference_labels JSONL
-│   └── reproduce_main_tables.py        ← Level 1: metrics from released outputs
+│   ├── outputs/                        ← generated tables and figures
+│   └── notebooks/
+│       └── reproduce_tables_and_figures.ipynb  ← inline notebook rendering
 │
 ├── metadata/
 │   ├── croissant.json            ← validated Croissant dataset metadata
@@ -132,6 +134,10 @@ python selfeval/scripts/run_eval_pipeline.py \
 | MATH-500 | cross-domain validation | derived evaluation outputs only |
 
 For TruthfulQA / CommonsenseQA / MATH-500 we do **not** redistribute original question text. Please obtain the original datasets from their official sources and use the scripts in `selfeval/` to reconstruct the evaluation splits.
+
+## Citation
+
+The accompanying paper is currently under double-blind review. Citation information will be added upon acceptance.
 
 ## License
 

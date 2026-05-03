@@ -4,7 +4,7 @@ Reviewer-facing summary of what is included in this release and which claims
 the artifact is designed to support.
 
 **Anonymous repository:**
-`https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics`
+`https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics/`
 
 ## Release contents
 

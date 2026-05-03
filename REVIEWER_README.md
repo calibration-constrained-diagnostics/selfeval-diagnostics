@@ -1,6 +1,6 @@
 # Reviewer Entry Point — Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics
 
-**Anonymous repo:** `https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics`
+**Anonymous repo:** `https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics/`
 
 **What this artifact verifies.** The main-paper tables (Table 1 diagnostic decomposition, Table 2 scale + ranking reversal) and the appendix tables (per-dataset breakdown, MATH-500 robustness, judge correlation) plus the main-paper figures (Figure 2 combined calibration/PVC plot, Figure 3 3-D C-PVC grid) are all regenerated from the released `model_outputs/*_self_eval.csv` without judge or target-model access.
 
@@ -10,6 +10,11 @@
 conda activate selfeval         # or: pip install -r requirements.txt
 python reproduce/reproduce_main_tables.py
 ```
+
+**Notebook alternative.** For an inline view of every paper table and figure, open
+[`reproduce/notebooks/reproduce_tables_and_figures.ipynb`](reproduce/notebooks/reproduce_tables_and_figures.ipynb)
+after the command above (or run it directly -- the notebook auto-invokes the
+script on first launch).
 
 **Expected output files under `reproduce/outputs/`.**
 
