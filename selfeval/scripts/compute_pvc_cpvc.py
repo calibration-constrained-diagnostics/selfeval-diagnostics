@@ -1,3 +1,20 @@
+"""
+PVC / C-PVC / VUS / PM-VUS analysis module for a released self-eval CSV.
+
+This module is import-safe: the functions below can be used from
+``reproduce/reproduce_main_tables.py`` without running any analysis.
+The ``__main__`` block exposes the original standalone CLI used to
+produce the side-effect-heavy ICML plot suite. The reviewer-facing
+reproduction pipeline in ``reproduce/`` writes exclusively into
+``reproduce/outputs/`` and does not invoke the CLI below.
+
+Terminology is aligned with the paper:
+  - PVC-VUS / C-PVC-VUS  (not ``pvc_auc`` / ``cpvc_auc``)
+  - PM-PVC-VUS / PM-C-PVC-VUS   (not ``Eff-PVC`` / ``Eff-C-PVC``)
+  - PM-SC-VUS (exploratory verification-cost proxy; not used in main claims)
+  - SEA, CalibError, Gap
+"""
+
 import argparse
 import json
 import pandas as pd
@@ -9,26 +26,10 @@ from scipy import stats
 from scipy.stats import pearsonr
 import os
 
-_parser = argparse.ArgumentParser(
-    description="Compute PVC / C-PVC / VUS / PM-VUS metrics from a released self-eval CSV."
-)
-_parser.add_argument(
-    "--input",
-    default="problem_evaluations_math500.csv",
-    help="Path to a released self_eval CSV (see model_outputs/).",
-)
-_parser.add_argument(
-    "--output",
-    default=None,
-    help="Optional path to write the per-model summary CSV. Default: alongside input.",
-)
-_args, _ = _parser.parse_known_args()
+# NumPy ≥2.0 renamed ``np.trapz`` → ``np.trapezoid``. Resolve once.
+_trapz = getattr(np, "trapezoid", None) or np.trapz
 
-output_csv = _args.input
-data = pd.read_csv(output_csv)
-_basename = os.path.splitext(os.path.basename(output_csv))[0]
-_cleaned = _basename.replace("problem_evaluations_", "").replace("_self_eval", "")
-_name_map = {
+_NAME_MAP = {
     "mathbenchmark": "Math360",
     "math360": "Math360",
     "truthfulQA": "TruthfulQA",
@@ -37,7 +38,12 @@ _name_map = {
     "commonsenseqa": "CSQA",
     "math500": "Math500",
 }
-dataset_name = _name_map.get(_cleaned, _cleaned)
+
+
+def dataset_name_from_path(path: str) -> str:
+    basename = os.path.splitext(os.path.basename(path))[0]
+    cleaned = basename.replace("problem_evaluations_", "").replace("_self_eval", "")
+    return _NAME_MAP.get(cleaned, cleaned)
 
 def combined_category_accuracy_plots(df, dataset_name, output_file=None, threshold=0.5, gamma_step=0.01):
     """
@@ -906,88 +912,119 @@ def generate_parameter_sweep_table_futures(calibration_df: pd.DataFrame, dataset
 from sklearn.metrics import auc
 import os
 
-def calculate_auc_metrics(sweep_df: pd.DataFrame) -> pd.DataFrame:
+def calculate_vus_metrics(sweep_df: pd.DataFrame) -> pd.DataFrame:
     """
-    Calculate proper 2D AUC values for PVC, C-PVC, and sample complexity for each model.
-    For PVC: AUC over gamma values (1D)
-    For C-PVC: AUC over gamma-tau grid (2D using trapezoidal rule)
+    Compute VUS (Volume Under Surface) metrics that match the paper's tables.
+
+    Full-region integrals (the paper's PVC-VUS / C-PVC-VUS / PM-SC-VUS columns
+    before PM restriction) follow Eq. (1) of the paper:
+
+        M-VUS = ∫∫_G M(gamma, tau) dgamma dtau / |G|
+
+    where the grid domain G = (0, 1] × [0, 1). For PVC (which is
+    tau-independent) this reduces to a 1D integral normalized by gamma-range.
+
+    Positive-margin variants follow Eq. (2):
+
+        M-PM-VUS = 2 * ∫∫_{gamma > tau + 1/2} [1 / (gamma - 1/2)] * M(gamma, tau) dgamma dtau
+
+    with the 1/(gamma - 1/2) factor normalizing the feasible tau-range at
+    each gamma (see Appendix L). The leading 2 makes PM-VUS comparable to
+    the full-region VUS.
+
+    Returns one row per model with columns:
+      PVC-VUS, C-PVC-VUS, Gap, PM-PVC-VUS, PM-C-PVC-VUS, PM-SC-VUS.
     """
-    print("Calculating 2D AUC metrics from parameter sweep...")
-    
+    EPS = 1e-9  # avoid division by (gamma - 1/2) exactly at the boundary
+
     models = sweep_df['model'].unique()
-    auc_results = []
-    
+    results = []
+
     for model in models:
         model_data = sweep_df[sweep_df['model'] == model].copy()
-        
-        # Sort by gamma and tau
         model_data = model_data.sort_values(['gamma', 'tau'])
-        
-        # For PVC: Calculate AUC over gamma only (since PVC doesn't depend on tau)
-        pvc_by_gamma = model_data.groupby('gamma')['pvc'].first().reset_index()
-        pvc_auc = np.trapz(pvc_by_gamma['pvc'], pvc_by_gamma['gamma'])
-        
-        # For C-PVC: Calculate 2D AUC over gamma-tau grid
-        gamma_unique = sorted(model_data['gamma'].unique())
-        tau_unique = sorted(model_data['tau'].unique())
-        
-        # Create 2D grid for C-PVC
+
+        gamma_unique = np.array(sorted(model_data['gamma'].unique()))
+        tau_unique = np.array(sorted(model_data['tau'].unique()))
+        gamma_range = gamma_unique[-1] - gamma_unique[0]
+        grid_area = gamma_range * (tau_unique[-1] - tau_unique[0])
+
+        # PVC depends only on gamma; one value per gamma
+        pvc_by_gamma = model_data.groupby('gamma')['pvc'].first().reindex(gamma_unique).values
+
+        # Build 2D grids for PVC, C-PVC, and sample complexity
         cpvc_grid = np.zeros((len(tau_unique), len(gamma_unique)))
-        sample_complexity_grid = np.zeros((len(tau_unique), len(gamma_unique)))
-        
+        sc_grid = np.zeros((len(tau_unique), len(gamma_unique)))
+        pvc_grid_2d = np.zeros((len(tau_unique), len(gamma_unique)))
         for i, tau in enumerate(tau_unique):
             for j, gamma in enumerate(gamma_unique):
                 row = model_data[(model_data['gamma'] == gamma) & (model_data['tau'] == tau)]
                 if not row.empty:
                     cpvc_grid[i, j] = row['c_pvc'].iloc[0]
-                    sample_complexity_grid[i, j] = row['sample_complexity'].iloc[0]
-        
-        # Calculate 2D AUC using trapezoidal rule
-        cpvc_auc = np.trapz(np.trapz(cpvc_grid, tau_unique, axis=0), gamma_unique)
-        sample_complexity_auc = np.trapz(np.trapz(sample_complexity_grid, tau_unique, axis=0), gamma_unique)
-        
-        # Normalize by grid area
-        grid_area = (gamma_unique[-1] - gamma_unique[0]) * (tau_unique[-1] - tau_unique[0])
-        gamma_range = gamma_unique[-1] - gamma_unique[0]
-        
-        pvc_auc_normalized = pvc_auc / gamma_range if gamma_range > 0 else 0
-        cpvc_auc_normalized = cpvc_auc / grid_area if grid_area > 0 else 0
-        sample_complexity_auc_normalized = sample_complexity_auc / grid_area if grid_area > 0 else 0
-        
-        auc_results.append({
-            'model': model,
-            'pvc_auc': round(pvc_auc_normalized, 4),
-            'cpvc_auc': round(cpvc_auc_normalized, 4),
-            'sample_complexity_auc': round(sample_complexity_auc_normalized, 4)
-        })
-    
-    return pd.DataFrame(auc_results)
+                    sc_grid[i, j] = row['sample_complexity'].iloc[0]
+                    pvc_grid_2d[i, j] = row['pvc'].iloc[0]
 
-def create_final_comprehensive_table(comprehensive_table: pd.DataFrame, auc_metrics: pd.DataFrame) -> pd.DataFrame:
+        # Full-region VUS (normalized)
+        pvc_vus_raw = _trapz(pvc_by_gamma, gamma_unique)
+        cpvc_vus_raw = _trapz(_trapz(cpvc_grid, tau_unique, axis=0), gamma_unique)
+        sc_vus_raw = _trapz(_trapz(sc_grid, tau_unique, axis=0), gamma_unique)
+        pvc_vus = pvc_vus_raw / gamma_range if gamma_range > 0 else 0.0
+        cpvc_vus = cpvc_vus_raw / grid_area if grid_area > 0 else 0.0
+        sc_vus = sc_vus_raw / grid_area if grid_area > 0 else 0.0
+
+        # Positive-margin weight: 2 * 1 / (gamma - 1/2)  (zero outside PM region)
+        G, T = np.meshgrid(gamma_unique, tau_unique)
+        pm_mask = G > T + 0.5
+        weight = np.zeros_like(G, dtype=float)
+        weight[pm_mask] = 2.0 / np.maximum(G[pm_mask] - 0.5, EPS)
+
+        pm_pvc_integrand = weight * pvc_grid_2d
+        pm_cpvc_integrand = weight * cpvc_grid
+        pm_sc_integrand = weight * sc_grid
+
+        pm_pvc_vus = _trapz(_trapz(pm_pvc_integrand, tau_unique, axis=0), gamma_unique)
+        pm_cpvc_vus = _trapz(_trapz(pm_cpvc_integrand, tau_unique, axis=0), gamma_unique)
+        pm_sc_vus = _trapz(_trapz(pm_sc_integrand, tau_unique, axis=0), gamma_unique)
+
+        results.append({
+            'Model': model,
+            'PVC-VUS': round(pvc_vus, 4),
+            'C-PVC-VUS': round(cpvc_vus, 4),
+            'Gap': round(pvc_vus - cpvc_vus, 4),
+            'PM-PVC-VUS': round(pm_pvc_vus, 4),
+            'PM-C-PVC-VUS': round(pm_cpvc_vus, 4),
+            'PM-SC-VUS': round(pm_sc_vus, 4),
+        })
+
+    return pd.DataFrame(results)
+
+
+# Backwards-compatible alias (old name) -- returns the same DataFrame.
+def calculate_auc_metrics(sweep_df: pd.DataFrame) -> pd.DataFrame:
+    return calculate_vus_metrics(sweep_df)
+
+def create_final_comprehensive_table(comprehensive_table: pd.DataFrame,
+                                     vus_metrics: pd.DataFrame) -> pd.DataFrame:
     """
-    Merge the comprehensive table with AUC metrics.
+    Merge the per-(gamma,tau) comprehensive table with the VUS / PM-VUS metrics.
+    The resulting table matches the per-model row schema used by the paper's
+    Table 1 and the appendix per-dataset breakdown.
     """
-    # Merge on model column
     final_table = pd.merge(
-        comprehensive_table, 
-        auc_metrics, 
-        left_on='Model', 
-        right_on='model', 
-        how='left'
+        comprehensive_table,
+        vus_metrics,
+        on='Model',
+        how='left',
     )
-    
-    # Drop the duplicate model column
-    final_table = final_table.drop('model', axis=1)
-    
-    # Reorder columns for better readability
     column_order = [
-        'Model', 'PVC', 'C-PVC', 'ECE', 'Brier', 'Sample_Complexity', 'Actual_Error',
-        'pvc_auc', 'cpvc_auc', 'sample_complexity_auc'
+        'Model',
+        'PVC-VUS', 'C-PVC-VUS', 'Gap',
+        'PM-PVC-VUS', 'PM-C-PVC-VUS', 'PM-SC-VUS',
+        'ECE', 'Brier',
     ]
-    
-    final_table = final_table[column_order]
-    
-    return final_table
+    # Preserve any extra columns (Sample_Complexity, Actual_Error) after the core set
+    extras = [c for c in final_table.columns if c not in column_order]
+    return final_table[[c for c in column_order if c in final_table.columns] + extras]
 
 def abbreviate_model_name(model_name):
     """Abbreviate model names for better visualization."""
@@ -1006,40 +1043,38 @@ def abbreviate_model_name(model_name):
     }
     return abbreviations.get(model_name, model_name[:6])  # Fallback to first 6 chars
 
-def plot_auc_pvc_scatter(auc_metrics, dataset_name, output_file=None):
+def plot_vus_scatter(vus_metrics, dataset_name, output_file=None):
     """
-    Create a scatter plot comparing AUC_PVC and AUC_CPVC values.
+    Scatter plot of PVC-VUS vs C-PVC-VUS (the appendix cross-domain comparison plot).
     """
     pastel_colors = [
         '#8da0cb', '#fc8d62', '#66c2a5', '#e78ac3', '#ffb347', '#b19cd9', '#87cefa', '#90ee90',
         '#ff9999', '#d4a5ff', '#ffcc99', '#c2c2f0', '#ffb6c1', '#c3e6cb', '#ffd700', '#aec6cf',
         '#cb99c9', '#fdfd96', '#cccccc', '#ff6666'
     ]
-    
-    models = auc_metrics['model'].tolist()
+
+    models = vus_metrics['Model'].tolist()
     colors = pastel_colors[:len(models)]
     color_dict = {model: color for model, color in zip(models, colors)}
-    
+
     plt.figure(figsize=(10, 8))
     sns.set(style="whitegrid")
-    
-    # Create scatter plot
+
     scatter_points = []
-    for _, row in auc_metrics.iterrows():
-        model = row['model']
-        pvc_auc = row['pvc_auc']
-        cpvc_auc = row['cpvc_auc']
-        
+    for _, row in vus_metrics.iterrows():
+        model = row['Model']
+        pvc_vus = row['PVC-VUS']
+        cpvc_vus = row['C-PVC-VUS']
+
         plt.scatter(
-            pvc_auc, cpvc_auc, s=150, 
+            pvc_vus, cpvc_vus, s=150,
             color=color_dict[model],
-            edgecolors='black', alpha=0.8
+            edgecolors='black', alpha=0.8,
         )
-        scatter_points.append((model, pvc_auc, cpvc_auc))
-    
-    # Get axis ranges
-    x_vals = auc_metrics['pvc_auc'].values
-    y_vals = auc_metrics['cpvc_auc'].values
+        scatter_points.append((model, pvc_vus, cpvc_vus))
+
+    x_vals = vus_metrics['PVC-VUS'].values
+    y_vals = vus_metrics['C-PVC-VUS'].values
     
     if len(x_vals) > 0 and len(y_vals) > 0:
         # X-axis: Round PVC values to nearest 0.5
@@ -1075,16 +1110,16 @@ def plot_auc_pvc_scatter(auc_metrics, dataset_name, output_file=None):
             xytext=(0, 10 + y_offset*100), ha='center', fontsize=10, fontweight='bold'
         )
     
-    plt.xlabel('PVC-AUC', fontsize=14)
-    plt.ylabel('Calibration-aware PVC-AUC', fontsize=14)
-    plt.title(f'PVC-AUC vs C-PVC-AUC - {dataset_name}', fontsize=16)
+    plt.xlabel('PVC-VUS', fontsize=14)
+    plt.ylabel('C-PVC-VUS', fontsize=14)
+    plt.title(f'PVC-VUS vs C-PVC-VUS - {dataset_name}', fontsize=16)
     plt.grid(True, alpha=0.3)
-    
+
     plt.text(
         0.6, 0.02,
-        "Points below line:\nCalibration reduces AUC reliability",
+        "Points below line:\nCalibration reduces VUS reliability",
         transform=plt.gca().transAxes, fontsize=9, va='bottom',
-        bbox=dict(boxstyle='round,pad=0.5', facecolor='white', alpha=0.7)
+        bbox=dict(boxstyle='round,pad=0.5', facecolor='white', alpha=0.7),
     )
     
     # Create legend manually
@@ -1097,12 +1132,16 @@ def plot_auc_pvc_scatter(auc_metrics, dataset_name, output_file=None):
               frameon=True, fancybox=True, shadow=True, fontsize=10)
     
     plt.tight_layout()
-    
+
     if output_file:
         plt.savefig(output_file, dpi=300, bbox_inches='tight')
-        print(f"AUC scatter plot saved to {output_file}")
-    
-    plt.show()
+    plt.close()
+
+
+# Backwards-compat alias
+def plot_auc_pvc_scatter(*args, **kwargs):
+    return plot_vus_scatter(*args, **kwargs)
+
 
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -1314,119 +1353,72 @@ def plot_model_cpvc_3d_surfaces(parameter_sweep_table, dataset_name, output_dir=
     print(f"All 3D C-PVC plots saved to: {output_dir}")
 
 
-# Update the main execution code
+# Standalone CLI (not used by the reviewer reproduction pipeline).
+#
+# The reviewer-facing entry point is ``reproduce/reproduce_main_tables.py``,
+# which imports the functions above and writes exclusively into
+# ``reproduce/outputs/``. The CLI below is preserved for authoring the full
+# ICML-style plot suite; it writes to the current working directory and is
+# *not* invoked during reproduction.
 if __name__ == "__main__":
-    # Parameters for single analysis
-    gamma = 0.6
-    tau = 0.25
-    
-    # Create filename suffix with parameters
+    _parser = argparse.ArgumentParser(
+        description="Compute PVC / C-PVC / VUS / PM-VUS metrics from a released self-eval CSV."
+    )
+    _parser.add_argument(
+        "--input", required=True,
+        help="Path to a released *_self_eval.csv (see model_outputs/).",
+    )
+    _parser.add_argument("--gamma", type=float, default=0.6)
+    _parser.add_argument("--tau", type=float, default=0.25)
+    _parser.add_argument("--output-dir", default=".",
+                        help="Directory for all generated CSVs/PNGs.")
+    _args = _parser.parse_args()
+
+    os.makedirs(_args.output_dir, exist_ok=True)
+    data = pd.read_csv(_args.input)
+    dataset_name = dataset_name_from_path(_args.input)
+    gamma, tau = _args.gamma, _args.tau
     param_suffix = f"gamma{gamma}_tau{tau}"
-    
+    outd = _args.output_dir
+
     # Basic analysis
     combined_category_accuracy_plots(
-        data, dataset_name, 
-        f"{dataset_name}_combined_model_performance_{param_suffix}.png", 
-        threshold=0.6
+        data, dataset_name,
+        os.path.join(outd, f"{dataset_name}_combined_model_performance_{param_suffix}.png"),
+        threshold=0.6,
     )
-    
     calibration_df = plot_category_calibration_error(
         data, dataset_name,
-        f"{dataset_name}_category_calibration_error_{param_suffix}.png"
+        os.path.join(outd, f"{dataset_name}_category_calibration_error_{param_suffix}.png"),
     )
-    calibration_df.to_csv(f"{dataset_name}_calibration_error_{param_suffix}.csv", index=False)
-    
-    # Judge correlation analysis
-    by_group_df = calculate_judge_correlations_by_model_category(data)
-    overall_summary = get_overall_summary(data)
-    
-    print("Results by Model and Category:")
-    print(by_group_df)
-    print("\nOverall Summary:")
-    print(overall_summary)
-    
-    # PVC analysis for single gamma-tau combination
+    calibration_df.to_csv(
+        os.path.join(outd, f"{dataset_name}_calibration_error_{param_suffix}.csv"), index=False)
+
     results = run_comprehensive_analysis(calibration_df, gamma, tau)
-    
-    # Create comprehensive table for single combination
     comprehensive_table = create_comprehensive_table(results, calibration_df, gamma, tau)
-    comprehensive_table.to_csv(f"{dataset_name}_comprehensive_metrics_table_{param_suffix}.csv", index=False)
-    
-    print("\n==== Comprehensive Metrics Table ====")
-    print(comprehensive_table.round(4))
-    
-    # Final combined plot
+    comprehensive_table.to_csv(
+        os.path.join(outd, f"{dataset_name}_comprehensive_metrics_table_{param_suffix}.csv"),
+        index=False)
+
     combined_calibration_pvc_plot(
         df=calibration_df,
         pvc_dims=results['pvc_dimensions'],
         cpvc_dims=results['cpvc_dimensions'],
         dataset_name=dataset_name,
-        output_file=f"{dataset_name}_combined_calibration_pvc_plot_{param_suffix}.png"
+        output_file=os.path.join(outd, f"{dataset_name}_combined_calibration_pvc_plot_{param_suffix}.png"),
     )
-    
-    print(f"\nComprehensive table saved to: {dataset_name}_comprehensive_metrics_table_{param_suffix}.csv")
-    
-    # Parameter sweep analysis
-    print("\n" + "="*50)
-    print("PARAMETER SWEEP ANALYSIS")
-    print("="*50)
-    
-    sweep_filename = f"{dataset_name}_parameter_sweep_table.csv"
-    
-    # Check if sweep table already exists
+
+    sweep_filename = os.path.join(outd, f"{dataset_name}_parameter_sweep_table.csv")
     if os.path.exists(sweep_filename):
-        print(f"Found existing sweep table: {sweep_filename}")
-        print("Loading existing parameter sweep table...")
         parameter_sweep_table = pd.read_csv(sweep_filename)
-        print(f"Loaded {len(parameter_sweep_table)} rows from existing file.")
     else:
-        print("No existing sweep table found. Generating new parameter sweep...")
         parameter_sweep_table = generate_parameter_sweep_table_futures(calibration_df, dataset_name)
         parameter_sweep_table.to_csv(sweep_filename, index=False)
-        print(f"Parameter sweep table saved to: {sweep_filename}")
-    
-    # Sort the sweep table by gamma and tau
-    print("Sorting parameter sweep table by gamma and tau...")
     parameter_sweep_table = parameter_sweep_table.sort_values(['gamma', 'tau']).reset_index(drop=True)
-    
-    # Calculate AUC metrics
-    auc_metrics = calculate_auc_metrics(parameter_sweep_table)
-    
-    print("\n==== AUC Metrics ====")
-    print(auc_metrics)
-    
-    # Create final comprehensive table with AUC metrics
-    final_comprehensive_table = create_final_comprehensive_table(comprehensive_table, auc_metrics)
-    
-    # Save final table
-    final_filename = f"{dataset_name}_final_comprehensive_table_{param_suffix}.csv"
-    final_comprehensive_table.to_csv(final_filename, index=False)
-    
-    print("\n==== Final Comprehensive Table with AUC Metrics ====")
-    print(final_comprehensive_table)
-    
-    # Create AUC PVC vs AUC C-PVC scatter plot
-    print("Generating AUC PVC vs AUC C-PVC scatter plot...")
-    plot_auc_pvc_scatter(
-        auc_metrics=auc_metrics,
-        dataset_name=dataset_name,
-        output_file=f"{dataset_name}_auc_pvc_scatter_{param_suffix}.png"
-    )
-    
-    print(f"\nFinal comprehensive table saved to: {final_filename}")
-    print(f"Parameter sweep summary:")
-    print(f"  - Total combinations: {len(parameter_sweep_table)}")
-    print(f"  - Unique gamma values: {parameter_sweep_table['gamma'].nunique()}")
-    print(f"  - Unique tau values: {parameter_sweep_table['tau'].nunique()}")
-    print(f"  - Models included: {parameter_sweep_table['model'].nunique()}")
 
-    # After parameter sweep analysis
-    if os.path.exists(sweep_filename):
-        print("\n" + "="*50)
-        print("GENERATING 3D C-PVC SURFACE PLOTS")
-        print("="*50)
-        
-        # Create 3D C-PVC surface plots for all models
-        plot_model_cpvc_3d_surfaces(parameter_sweep_table, dataset_name)
-    
-    print("\nAnalysis Complete!")
+    vus_metrics = calculate_vus_metrics(parameter_sweep_table)
+    final_comprehensive_table = create_final_comprehensive_table(comprehensive_table, vus_metrics)
+    final_comprehensive_table.to_csv(
+        os.path.join(outd, f"{dataset_name}_final_comprehensive_table_{param_suffix}.csv"),
+        index=False)
+    print(final_comprehensive_table.to_string())

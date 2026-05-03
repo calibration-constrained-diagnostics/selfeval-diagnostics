@@ -97,8 +97,8 @@ The following items must all pass before submission:
 - Transfer (or rename) the anonymous GitHub repository to the author's public org.
 - Mint a Zenodo DOI (or Harvard Dataverse record) for an archival snapshot.
 - Freeze a `v1.0` tag on the repository.
-- Add a `CITATION.cff` with the final author list, and update `README.md`,
-  `metadata/croissant.json`, and the paper with the DOIs and author information.
+- Update `README.md`, `metadata/croissant.json`, and the paper with the DOIs
+  and final author information.
 
 ## 8. Paper wording during review
 

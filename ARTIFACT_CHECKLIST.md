@@ -17,7 +17,7 @@ the artifact is designed to support.
 - [x] Reproduction scripts released (`reproduce/reproduce_main_tables.py`, `reproduce/build_reference_labels.py`)
 - [x] Configs released (`selfeval/configs/` for datasets, decoding, models, prompts)
 - [x] File checksums (`metadata/checksums.txt`, MD5 for every distributed file)
-- [x] Croissant metadata (`metadata/croissant.json`, including core + RAI fields)
+- [x] Croissant metadata (`metadata/croissant.json`, including core + RAI fields; populated with real `url` and MD5 hashes for every `FileObject`; should be run through the MLCommons Croissant online validator before camera-ready)
 - [x] Dataset card (`metadata/dataset_card.md`)
 - [x] Evaluation card (`metadata/evaluation_card.md`)
 - [x] License (`LICENSE`: CC-BY-4.0 for data / derived outputs; code under Apache-2.0 via `pyproject.toml`)
@@ -55,12 +55,11 @@ This artifact does **not** support:
 - [x] No author names, emails, affiliations, institutional paths, CI badges, wandb URLs, or internal hostnames in any file.
 - [x] Upstream dataset URLs (`sylinrl/TruthfulQA`, `HuggingFaceH4/MATH-500`) are unrelated to author identity.
 - [x] Croissant `url` points at the anonymous review repository; will be replaced by a persistent DOI at camera-ready.
-- [x] No `CITATION.cff` during review; will be added with the final author list after acceptance.
+- [x] No citation file is shipped during double-blind review.
 
 ## After acceptance
 
 - [ ] Transfer (or rename) the anonymous GitHub repository to the author's public org.
 - [ ] Mint a Zenodo DOI (or Harvard Dataverse record) for an archival snapshot.
 - [ ] Freeze a `v1.0` tag.
-- [ ] Add `CITATION.cff` with the final author list.
-- [ ] Update `README.md`, `metadata/croissant.json`, and the paper with the DOI and author information.
+- [ ] Update `README.md`, `metadata/croissant.json`, and the paper with the DOI and final author information.

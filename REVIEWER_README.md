@@ -1,27 +1,33 @@
 # Reviewer Entry Point — Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics
 
-**Anonymous repository URL:**
-`https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics`
+**Anonymous repo:** `https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics`
 
-This repository accompanies the anonymous submission
-*Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics*
-to the NeurIPS 2026 Evaluations & Datasets Track.
+**What this artifact verifies.** The main-paper tables (Table 1 diagnostic decomposition, Table 2 scale + ranking reversal) and the appendix tables (per-dataset breakdown, MATH-500 robustness, judge correlation) plus the main-paper figures (Figure 2 combined calibration/PVC plot, Figure 3 3-D C-PVC grid) are all regenerated from the released `model_outputs/*_self_eval.csv` without judge or target-model access.
 
-The repository is anonymized for double-blind review. Author identities,
-affiliations, contact information, and persistent DOIs will be added after the
-review period.
-
-## What you can do in ~10 minutes (Level 1)
+**Fast command (CPU, no API keys; ~3–5 min including a one-time parameter sweep that is cached for subsequent runs).**
 
 ```bash
-pip install -r requirements.txt
+conda activate selfeval         # or: pip install -r requirements.txt
 python reproduce/reproduce_main_tables.py
-# Metrics are written to reproduce/outputs/{math360, truthfulqa, commonsenseqa, math500}_metrics.csv
 ```
 
-This reproduces every main-paper diagnostic table (PVC / C-PVC / VUS / PM-VUS /
-SEA / CalibError) directly from the released `model_outputs/*.csv`. No model
-or judge reruns are required.
+**Expected output files under `reproduce/outputs/`.**
+
+- `table1_cross_dataset_diagnostic_decomposition.csv` — main-paper Table 1
+- `table2_scale_and_ranking_reversal.csv` — main-paper Table 2
+- `cross_dataset_average_pvc_plot.png` — main-paper Figure 2, panel (a)
+- `cross_domain_pvc_cpvc_comparison.png` — main-paper Figure 2, panel (b)
+- `cross_dataset_average_cpvc_3d_grid.png` — main-paper Figure 3
+- `appendix_per_dataset_breakdown.csv` — appendix per-dataset VUS table
+- `appendix_math500_table.csv` — appendix MATH-500 robustness table
+- `appendix_judge_correlation.csv` — appendix judge-correlation summary
+- `_sweep_{dataset}.csv` — cached (γ, τ) parameter sweeps (safe to delete; will be regenerated)
+
+File MD5 checksums for every redistributed input are in `metadata/checksums.txt`.
+
+---
+
+This repository accompanies the anonymous submission *Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics* to the NeurIPS 2026 Evaluations & Datasets Track. It is anonymized for double-blind review; author identities, affiliations, contact information, and persistent DOIs will be added after the review period.
 
 ## What else is here
 

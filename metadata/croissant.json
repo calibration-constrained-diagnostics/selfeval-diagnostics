@@ -3,7 +3,6 @@
     "@vocab": "https://schema.org/",
     "sc": "https://schema.org/",
     "cr": "http://mlcommons.org/croissant/",
-    "citeAs": "cr:citeAs",
     "column": "cr:column",
     "data": "cr:data",
     "dataType": "cr:dataType",
@@ -37,7 +36,6 @@
   "description": "Complete diagnostic evaluation package for LLM self-evaluation reliability. Includes Math-360 (controlled diagnostic testbed), processed cross-domain category splits, prompts, reference labels from a three-judge LLM ensemble, released model outputs, and diagnostic metric code.",
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "url": "https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics",
-  "citeAs": "Anonymous (2026). Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics. Under review at NeurIPS 2026 Evaluations and Datasets Track.",
   "keywords": [
     "LLM evaluation",
     "self-evaluation",

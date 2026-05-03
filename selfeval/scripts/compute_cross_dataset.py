@@ -7,6 +7,9 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.colors import LinearSegmentedColormap
 import os
 
+# NumPy ≥2.0 renamed ``np.trapz`` → ``np.trapezoid``.
+_trapz = getattr(np, "trapezoid", None) or np.trapz
+
 # Define the desired legend order
 LEGEND_ORDER = [
     'Qwen2.5-7B',
@@ -479,7 +482,7 @@ def calculate_auc_metrics(sweep_df: pd.DataFrame) -> pd.DataFrame:
         
         # For PVC: Calculate AUC over gamma only (since PVC doesn't depend on tau)
         pvc_by_gamma = model_data.groupby('gamma')['pvc'].first().reset_index()
-        pvc_auc = np.trapz(pvc_by_gamma['pvc'], pvc_by_gamma['gamma'])
+        pvc_auc = _trapz(pvc_by_gamma['pvc'], pvc_by_gamma['gamma'])
         
         # For C-PVC: Calculate 2D AUC over gamma-tau grid
         gamma_unique = sorted(model_data['gamma'].unique())
@@ -495,7 +498,7 @@ def calculate_auc_metrics(sweep_df: pd.DataFrame) -> pd.DataFrame:
                     cpvc_grid[i, j] = row['c_pvc'].iloc[0]
         
         # Calculate 2D AUC using trapezoidal rule
-        cpvc_auc = np.trapz(np.trapz(cpvc_grid, tau_unique, axis=0), gamma_unique)
+        cpvc_auc = _trapz(_trapz(cpvc_grid, tau_unique, axis=0), gamma_unique)
         
         # Normalize by grid area
         grid_area = (gamma_unique[-1] - gamma_unique[0]) * (tau_unique[-1] - tau_unique[0])
