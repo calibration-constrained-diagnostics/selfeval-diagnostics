@@ -133,10 +133,6 @@ python selfeval/scripts/run_eval_pipeline.py \
 
 For TruthfulQA / CommonsenseQA / MATH-500 we do **not** redistribute original question text. Please obtain the original datasets from their official sources and use the scripts in `selfeval/` to reconstruct the evaluation splits.
 
-## Citation
-
-The accompanying paper is currently under double-blind review. Citation information will be added upon acceptance.
-
 ## License
 
 Math-360 original questions and solutions are released under **CC-BY-4.0**.
