@@ -1,7 +1,7 @@
 """selfeval: diagnostic evaluation package for LLM self-evaluation.
 
-This package accompanies the paper *Evaluating LLM Self-Evaluation with
-Calibration-Constrained Diagnostics*. It exposes the model, judge,
+This package accompanies the paper *Calibration-Constrained Diagnostics
+for Evaluating LLM Self-Evaluation*. It exposes the model, judge,
 evaluation, and experiment utilities used to produce the released outputs,
 and is re-usable on new models through the black-box three-stage protocol.
 

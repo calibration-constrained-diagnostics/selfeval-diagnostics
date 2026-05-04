@@ -1,4 +1,4 @@
-# Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics
+# Calibration-Constrained Diagnostics for Evaluating LLM Self-Evaluation
 
 **Anonymous repository for double-blind review:**
 `https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics/`
@@ -9,18 +9,19 @@ This repository releases the **complete diagnostic evaluation package** accompan
 
 **Enables**
 
-- Stress-testing whether a model's reported confidence is trustworthy as a **deployment gate** for confidence-conditioned decisions.
-- Exposing **conclusion reversal**: cases where aggregate uncertainty summaries (ECE, Brier) and calibration-constrained, category-level diagnostics support different model-selection or gating-threshold conclusions.
-- Auditing category-level calibration / discrimination failures that aggregate UQ scores obscure.
-- Extending the evaluation protocol to new target models, judges, and datasets under the declared claim boundaries.
+- Reproducing the PVC / C-PVC / PM-VUS diagnostic scores in the paper.
+- Comparing whether a model's reported confidence tracks judge-referenced self-selection correctness.
+- Auditing category-level calibration failures hidden by aggregate uncertainty summaries (ECE, Brier).
+- Extending the protocol to new models and datasets.
 
 **Does not enable**
 
-- A general claim that PVC / C-PVC / PM-VUS are *better* uncertainty metrics than ECE or Brier — they are diagnostic surfaces for a specific failure mode, not replacement scores.
 - Absolute human-ground-truth correctness claims.
-- Literal VC-dimension estimation or distribution-free sample-complexity bounds.
-- Deployment safety certification for any specific model.
-- A general-purpose math leaderboard (Math-360 is a controlled diagnostic testbed).
+- Literal VC-dimension estimation.
+- Deployment safety certification for any particular model.
+- A general-purpose math leaderboard.
+
+Math-360 is a **controlled diagnostic testbed**, not a standalone general-purpose math benchmark. It has a supporting role; the central contribution is the evaluation methodology and diagnostic framework.
 
 ## Directory layout
 

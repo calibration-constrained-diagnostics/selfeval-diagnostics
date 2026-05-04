@@ -1,4 +1,4 @@
-# Reviewer Entry Point — Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics
+# Reviewer Entry Point — Calibration-Constrained Diagnostics for Evaluating LLM Self-Evaluation
 
 **Anonymous repo:** `https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics/`
 
@@ -34,7 +34,7 @@ File MD5 checksums for every redistributed input are in `metadata/checksums.txt`
 
 ---
 
-This repository accompanies the anonymous submission *Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics* to the NeurIPS 2026 Evaluations & Datasets Track. It is anonymized for double-blind review; author identities, affiliations, contact information, and persistent DOIs will be added after the review period.
+This repository accompanies the anonymous submission *Calibration-Constrained Diagnostics for Evaluating LLM Self-Evaluation* to the NeurIPS 2026 Evaluations & Datasets Track. It is anonymized for double-blind review; author identities, affiliations, contact information, and persistent DOIs will be added after the review period.
 
 ## What else is here
 

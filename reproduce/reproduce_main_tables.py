@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Reproduce the tables and plots that appear in the NeurIPS 2026 E&D submission
-"Evaluating LLM Self-Evaluation with Calibration-Constrained Diagnostics"
+"Calibration-Constrained Diagnostics for Evaluating LLM Self-Evaluation"
 from the released ``model_outputs/*_self_eval.csv`` files.
 
 Outputs (all written under ``reproduce/outputs/``):

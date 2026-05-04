@@ -1,11 +1,26 @@
 {
   "@context": {
+    "@language": "en",
     "@vocab": "https://schema.org/",
-    "sc": "https://schema.org/",
-    "cr": "http://mlcommons.org/croissant/",
+    "citeAs": "cr:citeAs",
     "column": "cr:column",
-    "data": "cr:data",
-    "dataType": "cr:dataType",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "equivalentProperty": "dct:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
     "extract": "cr:extract",
     "field": "cr:field",
     "fileProperty": "cr:fileProperty",
@@ -24,14 +39,16 @@
     "regex": "cr:regex",
     "repeated": "cr:repeated",
     "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "sc": "https://schema.org/",
     "separator": "cr:separator",
     "source": "cr:source",
     "subField": "cr:subField",
-    "transform": "cr:transform",
-    "rai": "http://mlcommons.org/croissant/RAI/"
+    "transform": "cr:transform"
   },
   "@type": "sc:Dataset",
   "name": "llm-self-evaluation-diagnostics",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
   "version": "1.0.0",
   "description": "Complete diagnostic evaluation package for LLM self-evaluation reliability. Includes Math-360 (controlled diagnostic testbed), processed cross-domain category splits, prompts, reference labels from a three-judge LLM ensemble, released model outputs, and diagnostic metric code.",
   "license": "https://creativecommons.org/licenses/by/4.0/",
@@ -47,7 +64,7 @@
   "rai:dataCollectionType": "authors",
   "rai:dataCollectionTimeframe": "2025",
   "rai:dataAnnotationProtocol": "Three independent LLM judges (Claude 3.7 Sonnet, Amazon Nova Premier, DeepSeek-R1) return pairwise preferences with reference-answer access; majority vote is the reference preference. Invalid responses (<0.4%) are excluded.",
-  "rai:dataPreprocessingProtocol": "Stratified sampling per category for TruthfulQA / CommonsenseQA (10 categories × 24 questions = 240 per testbed). Category mappings released without original question text.",
+  "rai:dataPreprocessingProtocol": "Stratified sampling per category for TruthfulQA / CommonsenseQA (10 categories x 24 questions = 240 per testbed). Category mappings released without original question text.",
   "rai:dataUseCases": "Diagnosing whether LLM-reported confidence is reliable enough for confidence-gated downstream decisions; comparing models under a fixed reference signal.",
   "rai:dataLimitations": "LLM-judge reference is a fixed comparative signal, not oracle ground truth. Controlled testbed size (360 items) is not a general-purpose leaderboard. Proprietary judge outputs may drift with vendor updates.",
   "rai:dataSocialImpact": "Intended to support responsible evaluation of confidence-gated LLM decisions. Should not be used to certify deployment safety or as a general-purpose leaderboard.",
@@ -56,7 +73,7 @@
       "@type": "cr:FileObject",
       "@id": "math360-questions",
       "name": "math360-questions",
-      "contentUrl": "data/math360/questions.jsonl",
+      "contentUrl": "https://raw.githubusercontent.com/calibration-constrained-diagnostics/selfeval-diagnostics/main/data/math360/questions.jsonl",
       "encodingFormat": "application/jsonlines",
       "md5": "ba633bca085f15257411c901b26a3272"
     },
@@ -64,7 +81,7 @@
       "@type": "cr:FileObject",
       "@id": "truthfulqa-categories",
       "name": "truthfulqa-categories",
-      "contentUrl": "data/cross_domain/truthfulqa_categories.jsonl",
+      "contentUrl": "https://raw.githubusercontent.com/calibration-constrained-diagnostics/selfeval-diagnostics/main/data/cross_domain/truthfulqa_categories.jsonl",
       "encodingFormat": "application/jsonlines",
       "md5": "95068712d7069e7ff4ad2a380e3cbd4a"
     },
@@ -72,7 +89,7 @@
       "@type": "cr:FileObject",
       "@id": "commonsenseqa-categories",
       "name": "commonsenseqa-categories",
-      "contentUrl": "data/cross_domain/commonsenseqa_categories.jsonl",
+      "contentUrl": "https://raw.githubusercontent.com/calibration-constrained-diagnostics/selfeval-diagnostics/main/data/cross_domain/commonsenseqa_categories.jsonl",
       "encodingFormat": "application/jsonlines",
       "md5": "84a51518f9108d075e2734a2ca1e78fc"
     },
@@ -98,12 +115,66 @@
       "name": "math360-records",
       "description": "Math-360 original problems used as the controlled diagnostic testbed.",
       "field": [
-        { "@type": "cr:Field", "name": "id", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "problem", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "answer", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "category", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "subcategory", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "difficulty", "dataType": "sc:Text" }
+        {
+          "@type": "cr:Field",
+          "@id": "math360-records/id",
+          "name": "id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "math360-questions" },
+            "extract": { "column": "id" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "math360-records/problem",
+          "name": "problem",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "math360-questions" },
+            "extract": { "column": "problem" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "math360-records/answer",
+          "name": "answer",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "math360-questions" },
+            "extract": { "column": "answer" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "math360-records/category",
+          "name": "category",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "math360-questions" },
+            "extract": { "column": "category" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "math360-records/subcategory",
+          "name": "subcategory",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "math360-questions" },
+            "extract": { "column": "subcategory" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "math360-records/difficulty",
+          "name": "difficulty",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "math360-questions" },
+            "extract": { "column": "difficulty" }
+          }
+        }
       ]
     },
     {
@@ -112,16 +183,106 @@
       "name": "reference-label-records",
       "description": "Per-pair reference labels (majority vote across three LLM judges) and the target model's self-selection and confidence.",
       "field": [
-        { "@type": "cr:Field", "name": "example_id", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "dataset", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "model_id", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "target_selected", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "target_confidence", "dataType": "sc:Float" },
-        { "@type": "cr:Field", "name": "judge_1_vote", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "judge_2_vote", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "judge_3_vote", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "majority_reference", "dataType": "sc:Text" },
-        { "@type": "cr:Field", "name": "agreement_type", "dataType": "sc:Text" }
+        {
+          "@type": "cr:Field",
+          "@id": "reference-label-records/example_id",
+          "name": "example_id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": { "@id": "reference-labels" },
+            "extract": { "column": "example_id" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "reference-label-records/dataset",
+          "name": "dataset",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": { "@id": "reference-labels" },
+            "extract": { "column": "dataset" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "reference-label-records/model_id",
+          "name": "model_id",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": { "@id": "reference-labels" },
+            "extract": { "column": "model_id" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "reference-label-records/target_selected",
+          "name": "target_selected",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": { "@id": "reference-labels" },
+            "extract": { "column": "target_selected" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "reference-label-records/target_confidence",
+          "name": "target_confidence",
+          "dataType": "sc:Float",
+          "source": {
+            "fileSet": { "@id": "reference-labels" },
+            "extract": { "column": "target_confidence" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "reference-label-records/judge_1_vote",
+          "name": "judge_1_vote",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": { "@id": "reference-labels" },
+            "extract": { "column": "judge_1_vote" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "reference-label-records/judge_2_vote",
+          "name": "judge_2_vote",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": { "@id": "reference-labels" },
+            "extract": { "column": "judge_2_vote" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "reference-label-records/judge_3_vote",
+          "name": "judge_3_vote",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": { "@id": "reference-labels" },
+            "extract": { "column": "judge_3_vote" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "reference-label-records/majority_reference",
+          "name": "majority_reference",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": { "@id": "reference-labels" },
+            "extract": { "column": "majority_reference" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "reference-label-records/agreement_type",
+          "name": "agreement_type",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": { "@id": "reference-labels" },
+            "extract": { "column": "agreement_type" }
+          }
+        }
       ]
     }
   ]
