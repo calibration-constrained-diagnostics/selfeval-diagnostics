@@ -38,6 +38,20 @@ The validator reports two recommended-field warnings that are intentional for th
 
 Both fields will be added at camera-ready together with the DOI and author list.
 
+## Responsible AI (RAI) metadata
+
+Per the NeurIPS 2026 E&D Track requirement (blog post, 2026-05-04), the Croissant file contains Responsible AI metadata in the following fields:
+
+- `rai:dataCollection`, `rai:dataCollectionType`, `rai:dataCollectionTimeframe`
+- `rai:dataAnnotationProtocol`
+- `rai:dataPreprocessingProtocol`
+- `rai:dataUseCases`
+- `rai:dataLimitations`
+- `rai:dataBiases`
+- `rai:personalSensitiveInformation`
+- `rai:dataSocialImpact`
+- `rai:dataReleaseMaintenancePlan`
+
 ## What this validation guarantees
 
 - Any third party running `mlcroissant validate` against the distributed file will obtain the same PASS result.
