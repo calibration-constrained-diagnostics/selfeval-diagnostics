@@ -3,7 +3,7 @@
 **Anonymous repository for double-blind review:**
 `https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics/`
 
-This repository releases the **complete diagnostic evaluation package** accompanying the NeurIPS 2026 Evaluations & Datasets Track submission of the same title. The released artifact is **not a single dataset**: it is a reusable evaluation protocol, diagnostic metrics, a controlled diagnostic testbed (Math-360), cross-domain metadata, judge-reference labels, and reproduction scripts, together with a dataset/evaluation card and Croissant metadata. `metadata/croissant.json` should be run through the [MLCommons Croissant validator](https://mlcommons.org/) before camera-ready; file MD5 checksums for every redistributed input are listed in `metadata/checksums.txt`.
+This repository releases the **complete diagnostic evaluation package** accompanying the NeurIPS 2026 Evaluations & Datasets Track submission of the same title. The released artifact is **not a single dataset**: it is a reusable evaluation protocol, diagnostic metrics, a controlled diagnostic testbed (Math-360), cross-domain metadata, judge-reference labels, and reproduction scripts, together with a dataset/evaluation card and Croissant metadata. `metadata/croissant.json` has been validated against the [MLCommons Croissant 1.0 schema](https://mlcommons.org/working-groups/data/croissant/) (`mlcroissant validate`) and loads cleanly via `mlcroissant.Dataset`; file MD5 checksums for every redistributed input are listed in `metadata/checksums.txt`.
 
 ## What this artifact is / is not
 
