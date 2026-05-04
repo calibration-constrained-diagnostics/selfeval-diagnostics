@@ -3,7 +3,7 @@
 **Anonymous repository for double-blind review:**
 `https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics/`
 
-This repository releases the **complete diagnostic evaluation package** accompanying the NeurIPS 2026 Evaluations & Datasets Track submission of the same title. The released artifact is **not a single dataset**: it is a reusable evaluation protocol, diagnostic metrics, a controlled diagnostic testbed (Math-360), cross-domain metadata, judge-reference labels, and reproduction scripts, together with a dataset/evaluation card and Croissant metadata. `metadata/croissant.json` has been validated against the [MLCommons Croissant 1.0 schema](https://mlcommons.org/working-groups/data/croissant/) (`mlcroissant validate`) and loads cleanly via `mlcroissant.Dataset`; file MD5 checksums for every redistributed input are listed in `metadata/checksums.txt`.
+This repository releases the **complete diagnostic evaluation package** accompanying the NeurIPS 2026 Evaluations & Datasets Track submission of the same title. The released artifact is **not a single dataset**: it is a reusable evaluation protocol, diagnostic metrics, a controlled diagnostic testbed (Math-360), cross-domain metadata, judge-reference labels, and reproduction scripts, together with a dataset/evaluation card and Croissant metadata. `metadata/croissant.json` has been validated against the [MLCommons Croissant 1.0 schema](https://mlcommons.org/working-groups/data/croissant/) (`mlcroissant validate`) and loads cleanly via `mlcroissant.Dataset` (validation evidence: `metadata/validation_report.md`; reproducible check: `python scripts/validate_croissant.py`). File MD5 checksums for every redistributed input are listed in `metadata/checksums.txt`.
 
 ## What this artifact is / is not
 
@@ -83,9 +83,14 @@ selfeval_diagnostics/
 │       └── reproduce_tables_and_figures.ipynb  ← inline notebook rendering
 │
 ├── metadata/
-│   ├── croissant.json            ← validated Croissant dataset metadata
+│   ├── croissant.json            ← Croissant 1.0 metadata (schema-valid, loadable)
+│   ├── validation_report.md      ← Croissant validator result + environment
+│   ├── checksums.txt             ← MD5 for every redistributed file
 │   ├── dataset_card.md           ← per-dataset card (intended use, limits, license)
 │   └── evaluation_card.md        ← evaluation-protocol card (what is measured, how)
+│
+├── scripts/
+│   └── validate_croissant.py     ← reproducible Croissant loadability check
 │
 └── docs/
     └── release_strategy.md       ← hosting/anonymity/release plan

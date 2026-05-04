@@ -17,7 +17,7 @@ the artifact is designed to support.
 - [x] Reproduction scripts released (`reproduce/reproduce_main_tables.py`, `reproduce/build_reference_labels.py`)
 - [x] Configs released (`selfeval/configs/` for datasets, decoding, models, prompts)
 - [x] File checksums (`metadata/checksums.txt`, MD5 for every distributed file)
-- [x] Croissant metadata (`metadata/croissant.json`, core + RAI fields; `url` and MD5 hashes populated for every `FileObject`; validated against the MLCommons Croissant 1.0 schema via `mlcroissant validate` and loadable via `mlcroissant.Dataset`)
+- [x] Croissant metadata (`metadata/croissant.json`, core + RAI fields; `url` and MD5 hashes populated for every `FileObject`; validated against the MLCommons Croissant 1.0 schema via `mlcroissant validate` and loadable via `mlcroissant.Dataset`; evidence in `metadata/validation_report.md`, reproducible via `scripts/validate_croissant.py`)
 - [x] Dataset card (`metadata/dataset_card.md`)
 - [x] Evaluation card (`metadata/evaluation_card.md`)
 - [x] License (`LICENSE`: CC-BY-4.0 for data / derived outputs; code under Apache-2.0 via `pyproject.toml`)
