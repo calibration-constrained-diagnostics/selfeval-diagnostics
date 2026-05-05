@@ -3,6 +3,31 @@
 **Anonymous repository for double-blind review:**
 `https://github.com/calibration-constrained-diagnostics/selfeval-diagnostics/`
 
+## Reviewer quickstart (≤10 min, CPU, no API keys)
+
+```bash
+pip install -r requirements.txt
+python scripts/validate_croissant.py          # Croissant schema + loadability
+python reproduce/reproduce_main_tables.py      # Tables 1, 2 + Figures 2, 3
+```
+
+**Expected outputs** (all under `reproduce/outputs/`):
+
+| File | Paper artifact |
+|---|---|
+| `table1_cross_dataset_diagnostic_decomposition.csv` | Table 1 |
+| `table2_scale_and_ranking_reversal.csv`             | Table 2 |
+| `cross_dataset_average_pvc_plot.png`                | Figure 2(a) |
+| `cross_domain_pvc_cpvc_comparison.png`              | Figure 2(b) |
+| `cross_dataset_average_cpvc_3d_grid.png`            | Figure 3 |
+| `appendix_per_dataset_breakdown.csv`                | Appendix per-dataset table |
+| `appendix_math500_table.csv`                        | Appendix MATH-500 table |
+| `appendix_judge_correlation.csv`                    | Appendix judge-correlation table |
+
+Pre-generated snapshots of every output above are shipped under `reproduce/outputs/` for immediate inspection. Level-1 reproduction requires no judge API and no target-model access; see `REVIEWER_README.md` for levels L2/L3.
+
+---
+
 This repository releases the **complete diagnostic evaluation package** accompanying the NeurIPS 2026 Evaluations & Datasets Track submission of the same title. The released artifact is **not a single dataset**: it is a reusable evaluation protocol, diagnostic metrics, a controlled diagnostic testbed (Math-360), cross-domain metadata, judge-reference labels, and reproduction scripts, together with a dataset/evaluation card and Croissant metadata. `metadata/croissant.json` has been validated against the [MLCommons Croissant 1.0 schema](https://mlcommons.org/working-groups/data/croissant/) (`mlcroissant validate`) and loads cleanly via `mlcroissant.Dataset` (validation evidence: `metadata/validation_report.md`; reproducible check: `python scripts/validate_croissant.py`). File MD5 checksums for every redistributed input are listed in `metadata/checksums.txt`.
 
 ## What this artifact is / is not

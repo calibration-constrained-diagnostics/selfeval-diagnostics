@@ -52,6 +52,10 @@ Per the NeurIPS 2026 E&D Track requirement (blog post, 2026-05-04), the Croissan
 - `rai:dataSocialImpact`
 - `rai:dataReleaseMaintenancePlan`
 
+## Fresh-clone smoke test
+
+The distributed tree (without `.git/` and `reproduce/outputs/`) was copied to a scratch directory and `python scripts/validate_croissant.py` was executed from there. Result: both record sets streamed successfully ("2/2 record sets streamed successfully"); `math360-records` returned structured records with the `id`/`problem`/`answer`/`category`/`subcategory`/`difficulty` fields populated from the public GitHub raw URL.
+
 ## What this validation guarantees
 
 - Any third party running `mlcroissant validate` against the distributed file will obtain the same PASS result.
