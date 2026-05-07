@@ -1,7 +1,7 @@
 # Croissant Validation Report
 
 **Validated file:** `metadata/croissant.json`
-**Spec:** MLCommons Croissant 1.0 (`conformsTo: http://mlcommons.org/croissant/1.0`)
+**Spec:** MLCommons Croissant 1.1 (`conformsTo: http://mlcommons.org/croissant/1.1`)
 
 ## Validation commands
 
