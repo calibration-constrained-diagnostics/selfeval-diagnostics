@@ -1,0 +1,2 @@
+pairs,semantic_beats_global,semantic_beats_random,mean_semantic_minus_global,mean_semantic_minus_random,wilcoxon_sem_vs_rand_p,wilcoxon_sem_vs_glob_p
+39,3,10,-0.026648272017837236,-0.003955221107395018,0.01835132993754164,1.2901364243589342e-07

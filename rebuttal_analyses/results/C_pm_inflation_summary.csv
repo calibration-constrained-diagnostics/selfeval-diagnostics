@@ -1,0 +1,2 @@
+pairs,random_gt_semantic,mean_semantic_PM,mean_random_null_PM,wilcoxon_p
+39,33,0.05005276802693347,0.05596829037940454,0.004719421009212965

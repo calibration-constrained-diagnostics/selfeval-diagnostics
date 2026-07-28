@@ -1,0 +1,372 @@
+model,problem_id,gold,wrong_ans,ans_a,ans_b
+JiuZhang3.0-7B,test/precalculus/441.json,30^\circ,30,30,30^\circ
+JiuZhang3.0-7B,test/intermediate_algebra/279.json,10,0,0,10
+JiuZhang3.0-7B,test/intermediate_algebra/623.json,0,\infty,0,\infty
+JiuZhang3.0-7B,test/intermediate_algebra/1898.json,-5,-294045,-5,-294045
+JiuZhang3.0-7B,test/intermediate_algebra/1555.json,12,13,12,13
+JiuZhang3.0-7B,test/intermediate_algebra/446.json,9,10,10,9
+JiuZhang3.0-7B,test/intermediate_algebra/860.json,\text{ellipse},\text{circle},\text{circle},ellipse
+JiuZhang3.0-7B,test/intermediate_algebra/1797.json,2 \sqrt{5},\frac{\sqrt{369}}{5},\frac{\sqrt{369}}{5},2\sqrt{5}
+JiuZhang3.0-7B,test/intermediate_algebra/1014.json,50,30,50,30
+JiuZhang3.0-7B,test/intermediate_algebra/101.json,10,-2,-2,10
+JiuZhang3.0-7B,test/algebra/1072.json,\frac{243}{625},\frac{125}{19683},\frac{125}{19683},\frac{243}{625}
+JiuZhang3.0-7B,test/algebra/722.json,9901,10000,10000,9901
+JiuZhang3.0-7B,test/algebra/892.json,2,a,a,2
+JiuZhang3.0-7B,test/algebra/2058.json,13,11,13,11
+JiuZhang3.0-7B,test/algebra/1275.json,\frac{\sqrt{3}}{3},\frac{1}{\sqrt{3}},\frac{\sqrt{3}}{3},\frac{1}{\sqrt{3}}
+JiuZhang3.0-7B,test/algebra/907.json,2,\frac{2 + 13\sqrt{5}}{8},\frac{2 + 13\sqrt{5}}{8},2
+JiuZhang3.0-7B,test/algebra/1143.json,17,81,81,17
+JiuZhang3.0-7B,test/algebra/1282.json,11,2,11,2
+JiuZhang3.0-7B,test/algebra/634.json,4,7,7,4
+JiuZhang3.0-7B,test/algebra/1529.json,1,-1,1,-1
+JiuZhang3.0-7B,test/algebra/1031.json,\frac{11}{2},5,5,\frac{11}{2}
+JiuZhang3.0-7B,test/algebra/114.json,4,8,8,4
+JiuZhang3.0-7B,test/algebra/1960.json,9,45,45,9
+JiuZhang3.0-7B,test/algebra/2043.json,"(-\infty, 2) \cup (3, \infty)","(-\infty, 2) \cup (2, 3) \cup (3, \infty)","(-\infty, 2) \cup (2, 3) \cup (3, \infty)","(-\infty,2)\cup(3,\infty)"
+JiuZhang3.0-7B,test/algebra/1814.json,143,0,143,0
+JiuZhang3.0-7B,test/number_theory/572.json,9,18,9,18
+JiuZhang3.0-7B,test/number_theory/515.json,27,729,729,27
+JiuZhang3.0-7B,test/number_theory/46.json,40_9,33_9,33_9,40_9
+JiuZhang3.0-7B,test/number_theory/1201.json,1,54,1,54
+JiuZhang3.0-7B,test/number_theory/1065.json,17,9,9,17
+JiuZhang3.0-7B,test/number_theory/1287.json,8,6,6,8
+JiuZhang3.0-7B,test/number_theory/1172.json,103,51,51,103
+JiuZhang3.0-7B,test/number_theory/686.json,4,8,8,4
+JiuZhang3.0-7B,test/number_theory/427.json,25,10,10,25
+JiuZhang3.0-7B,test/number_theory/22.json,2,1,2,1
+JiuZhang3.0-7B,test/number_theory/1128.json,2,6,6,2
+JiuZhang3.0-7B,test/prealgebra/1622.json,42,126,126,42
+JiuZhang3.0-7B,test/prealgebra/1139.json,4,3,3,4
+JiuZhang3.0-7B,test/prealgebra/1558.json,1.25,0.87,0.87,1.25
+JiuZhang3.0-7B,test/prealgebra/1233.json,10,10\%,10,10\%
+JiuZhang3.0-7B,test/prealgebra/1924.json,2k+2,2 + 2k,2 + 2k,2k + 2
+JiuZhang3.0-7B,test/prealgebra/1686.json,4,3,4,3
+JiuZhang3.0-7B,test/prealgebra/1297.json,9,7,7,9
+JiuZhang3.0-7B,test/prealgebra/1655.json,\dfrac{17}{50},\frac{7}{25},\frac{7}{25},\frac{17}{50}
+JiuZhang3.0-7B,test/prealgebra/1908.json,3,6,3,6
+JiuZhang3.0-7B,test/prealgebra/2086.json,40,24,40,24
+JiuZhang3.0-7B,test/prealgebra/1238.json,2,3,3,2
+JiuZhang3.0-7B,test/prealgebra/2066.json,22,0,0,22
+JiuZhang3.0-7B,test/prealgebra/65.json,6,3,6,3
+JiuZhang3.0-7B,test/prealgebra/1227.json,60,0,0,60
+JiuZhang3.0-7B,test/prealgebra/1930.json,7,10,7,10
+JiuZhang3.0-7B,test/geometry/434.json,28,124,28,124
+JiuZhang3.0-7B,test/geometry/353.json,\sqrt{5},\frac{-1 + \sqrt{21}}{2},\sqrt{5},\frac{-1 + \sqrt{21}}{2}
+JiuZhang3.0-7B,test/geometry/347.json,76^\circ,14,14,76^\circ
+JiuZhang3.0-7B,test/geometry/1097.json,63,48,48,63
+JiuZhang3.0-7B,test/geometry/1108.json,"(2,4)","(-1,-2)","(2, 4)","(-1,-2)"
+JiuZhang3.0-7B,test/geometry/477.json,216,24\sqrt{3},24\sqrt{3},216
+JiuZhang3.0-7B,test/geometry/615.json,106^\circ,106,106^\circ,106
+JiuZhang3.0-7B,test/counting_and_probability/1114.json,\frac{11}{36},\frac{1}{3},\frac{1}{3},\frac{11}{36}
+JiuZhang3.0-7B,test/counting_and_probability/1060.json,1260,2520,2520,1260
+JiuZhang3.0-7B,test/counting_and_probability/508.json,"10,\!080",40320,40320,10080
+JiuZhang3.0-7B,test/counting_and_probability/1009.json,28,462,28,462
+JiuZhang3.0-7B,test/counting_and_probability/25149.json,63,8,8,63
+JiuZhang3.0-7B,test/counting_and_probability/1014.json,480,600,600,480
+JiuZhang3.0-7B,test/counting_and_probability/199.json,13,20,20,13
+Llama-3.1-8B-Instruct,test/precalculus/659.json,5x - 7y + 11z + 4 = 0,5x - 7y + z - 6 = 0,5x - 7y + 11z + 4 = 0,5x - 7y + z - 6 = 0
+Llama-3.1-8B-Instruct,test/precalculus/263.json,\begin{pmatrix} -2 \\ -14 \\ -7 \end{pmatrix},\begin{pmatrix} -6 \\ -17 \\ 10 \end{pmatrix},\begin{pmatrix} -2 \\ -14 \\ -7 \end{pmatrix},\begin{pmatrix} -6 \\ -17 \\ 10 \end{pmatrix}
+Llama-3.1-8B-Instruct,test/precalculus/452.json,\text{(E)},(A),(A),(E)
+Llama-3.1-8B-Instruct,test/precalculus/625.json,\begin{pmatrix} 16/49 \\ 48/49 \\ 24/49 \end{pmatrix},\begin{pmatrix} \frac{16}{49} \\ \frac{48}{49} \\ \frac{24}{49} \end{pmatrix},\begin{pmatrix} \frac{16}{49} \\ \frac{48}{49} \\ \frac{24}{49} \end{pmatrix},\begin{pmatrix} 16/49 \\ 48/49 \\ 24/49 \end{pmatrix}
+Llama-3.1-8B-Instruct,test/precalculus/356.json,y = -2x,-2,-2,y = -2x
+Llama-3.1-8B-Instruct,test/intermediate_algebra/134.json,-50,4950,-50,4950
+Llama-3.1-8B-Instruct,test/intermediate_algebra/1000.json,3,\frac{9}{13},\frac{9}{13},3
+Llama-3.1-8B-Instruct,test/intermediate_algebra/47.json,"(-2,1)","\left(-\frac{3}{2}, \frac{3}{2}\right)","\left(-\frac{3}{2}, \frac{3}{2}\right)","(-2,1)"
+Llama-3.1-8B-Instruct,test/intermediate_algebra/362.json,40,28,40,28
+Llama-3.1-8B-Instruct,test/intermediate_algebra/1898.json,-5,3,3,-5
+Llama-3.1-8B-Instruct,test/intermediate_algebra/1555.json,12,23,12,23
+Llama-3.1-8B-Instruct,test/intermediate_algebra/102.json,2,\frac{1}{2},\frac{1}{2},2
+Llama-3.1-8B-Instruct,test/intermediate_algebra/337.json,22,316.96,316.96,22
+Llama-3.1-8B-Instruct,test/intermediate_algebra/446.json,9,-\frac{165}{92},9,-\frac{165}{92}
+Llama-3.1-8B-Instruct,test/intermediate_algebra/1714.json,"(5,\infty)","(-\infty, 5) \cup (5, \infty)","(5, \infty)","(-\infty, 5) \cup (5, \infty)"
+Llama-3.1-8B-Instruct,test/intermediate_algebra/1102.json,"-2,1","-2, -1","-2,1","-2, -1"
+Llama-3.1-8B-Instruct,test/intermediate_algebra/101.json,10,6,6,10
+Llama-3.1-8B-Instruct,test/algebra/769.json,11,22,11,22
+Llama-3.1-8B-Instruct,test/algebra/893.json,-1,10,10,-1
+Llama-3.1-8B-Instruct,test/algebra/892.json,2,\sqrt{2},\sqrt{2},2
+Llama-3.1-8B-Instruct,test/algebra/2232.json,-3,24,-3,24
+Llama-3.1-8B-Instruct,test/algebra/621.json,3.21,4.21,4.21,3.21
+Llama-3.1-8B-Instruct,test/algebra/2102.json,56,48,48,56
+Llama-3.1-8B-Instruct,test/algebra/1934.json,13,\frac{25}{4},13,\frac{25}{4}
+Llama-3.1-8B-Instruct,test/algebra/524.json,4005,"\left(\frac{1 - \sqrt{7}}{2}, \frac{1 + \sqrt{7}}{2}\right), \left(\frac{1 + \sqrt{7}}{2}, \frac{1 - \sqrt{7}}{2}\right)","\left(\frac{1 - \sqrt{7}}{2}, \frac{1 + \sqrt{7}}{2}\right), \left(\frac{1 + \sqrt{7}}{2}, \frac{1 - \sqrt{7}}{2}\right)",4005
+Llama-3.1-8B-Instruct,test/algebra/634.json,4,\frac{-15 + \sqrt{337}}{-4},\frac{-15 + \sqrt{337}}{-4},4
+Llama-3.1-8B-Instruct,test/algebra/2176.json,3,2,3,2
+Llama-3.1-8B-Instruct,test/algebra/2680.json,5r^5,accurate and elegant,accurate and elegant,5r^5
+Llama-3.1-8B-Instruct,test/algebra/776.json,-2,-7,-2,-7
+Llama-3.1-8B-Instruct,test/algebra/824.json,12,10,10,12
+Llama-3.1-8B-Instruct,test/number_theory/149.json,66,21,21,66
+Llama-3.1-8B-Instruct,test/number_theory/1201.json,1,2,2,1
+Llama-3.1-8B-Instruct,test/number_theory/1185.json,6,4,6,4
+Llama-3.1-8B-Instruct,test/number_theory/928.json,3,2,3,2
+Llama-3.1-8B-Instruct,test/number_theory/679.json,59,3,3,59
+Llama-3.1-8B-Instruct,test/number_theory/1128.json,2,5,5,2
+Llama-3.1-8B-Instruct,test/prealgebra/1233.json,10,10\%,10\%,10
+Llama-3.1-8B-Instruct,test/prealgebra/993.json,1250,555.56,1250,555.56
+Llama-3.1-8B-Instruct,test/prealgebra/1353.json,4,6,6,4
+Llama-3.1-8B-Instruct,test/prealgebra/1640.json,32,16,32,16
+Llama-3.1-8B-Instruct,test/geometry/434.json,28,-34,28,-34
+Llama-3.1-8B-Instruct,test/geometry/178.json,2,\tan A = 2,\tan A = 2,2
+Llama-3.1-8B-Instruct,test/geometry/254.json,3,correct,correct,3
+Llama-3.1-8B-Instruct,test/geometry/686.json,18+2\pi,18 + \pi,18 + 2\pi,18 + \pi
+Llama-3.1-8B-Instruct,test/geometry/1097.json,63,59,63,59
+Llama-3.1-8B-Instruct,test/geometry/1108.json,"(2,4)","(1,4)","(2,4)","(1,4)"
+Llama-3.1-8B-Instruct,test/geometry/947.json,-\frac{24}{25},\frac{7}{25},\frac{7}{25},-\frac{24}{25}
+Llama-3.1-8B-Instruct,test/geometry/795.json,\frac{\sqrt{21}}{5},\frac{\sqrt{609}}{25},\frac{\sqrt{609}}{25},\frac{\sqrt{21}}{5}
+Llama-3.1-8B-Instruct,test/geometry/477.json,216,54√2 cubic inches,54√2 cubic inches,216
+Llama-3.1-8B-Instruct,test/counting_and_probability/870.json,\frac{1}{3},\frac{1}{4},\frac{1}{4},\frac{1}{3}
+Llama-3.1-8B-Instruct,test/counting_and_probability/216.json,1940,**The number of ways to form a subcommittee of 5 members that has at least one member from each party is 1940,1940,**The number of ways to form a subcommittee of 5 members that has at least one member from each party is 1940
+Llama-3.1-8B-Instruct,test/counting_and_probability/116.json,4495,"4,665","4,495","4,665"
+Llama-3.1-8B-Instruct,test/counting_and_probability/1014.json,480,correct,480,correct
+Ministral-8B-Instruct-2410,test/precalculus/819.json,\text{(C)},(E) Cylinder,(E) Cylinder,(C)
+Ministral-8B-Instruct-2410,test/precalculus/452.json,\text{(E)},\text{(E) Hyperbola},E,\text{(E) Hyperbola}
+Ministral-8B-Instruct-2410,test/precalculus/1291.json,1 - 12i,-9 - 12i,1 - 12i,-9 - 12i
+Ministral-8B-Instruct-2410,test/precalculus/1252.json,1,0,0,1
+Ministral-8B-Instruct-2410,test/intermediate_algebra/1247.json,-256,256,256,-256
+Ministral-8B-Instruct-2410,test/intermediate_algebra/232.json,81,35,35,81
+Ministral-8B-Instruct-2410,test/intermediate_algebra/1126.json,16,11 + 2\sqrt{133},11 + 2\sqrt{133},16
+Ministral-8B-Instruct-2410,test/intermediate_algebra/2022.json,64,2,2,64
+Ministral-8B-Instruct-2410,test/algebra/1035.json,3,3 treeks,3 treeks,3
+Ministral-8B-Instruct-2410,test/algebra/2058.json,13,12,13,12
+Ministral-8B-Instruct-2410,test/algebra/276.json,12,6,6,12
+Ministral-8B-Instruct-2410,test/algebra/1343.json,256,\[ \sqrt{f(f(f(f(1))))} = 2^{2^{15}} \],\[ \sqrt{f(f(f(f(1))))} = 2^{2^{15}} \],256
+Ministral-8B-Instruct-2410,test/algebra/824.json,12,14,14,12
+Ministral-8B-Instruct-2410,test/number_theory/737.json,284,742,742,284
+Ministral-8B-Instruct-2410,test/number_theory/914.json,9,10,9,10
+Ministral-8B-Instruct-2410,test/prealgebra/1512.json,7\pi,33\pi,7\pi,33\pi
+Ministral-8B-Instruct-2410,test/prealgebra/1187.json,21,30 \text{ cm}^2,30 \text{ cm}^2,21
+Ministral-8B-Instruct-2410,test/geometry/172.json,8,\frac{64}{3},\frac{64}{3},8
+Ministral-8B-Instruct-2410,test/geometry/1097.json,63,59,63,59
+Ministral-8B-Instruct-2410,test/geometry/1108.json,"(2,4)","(3, 6)","(3, 6)","(2, 4)"
+Ministral-8B-Instruct-2410,test/counting_and_probability/525.json,144,678,678,144
+Ministral-8B-Instruct-2410,test/counting_and_probability/216.json,1940,8,1940,8
+Ministral-8B-Instruct-2410,test/counting_and_probability/737.json,"58,500",14625,58500,14625
+Ministral-8B-Instruct-2410,test/counting_and_probability/238.json,10080,5045,5045,10080
+Open-Reasoner-Zero-7B,test/precalculus/927.json,90^\circ,114,114,90^\circ
+Open-Reasoner-Zero-7B,test/precalculus/990.json,6 - 5i,3 + \frac{3\sqrt{2}}{2} - 5i,6 - 5i,3 + \frac{3\sqrt{2}}{2} - 5i
+Open-Reasoner-Zero-7B,test/precalculus/675.json,4,16,16,4
+Open-Reasoner-Zero-7B,test/precalculus/1056.json,288 \pi,x^2 + y^2 + z^2 = 36,288\pi,x^2 + y^2 + z^2 = 36
+Open-Reasoner-Zero-7B,test/precalculus/989.json,12,10,12,10
+Open-Reasoner-Zero-7B,test/precalculus/1172.json,7,\frac{58\sqrt{85}}{85},\frac{58\sqrt{85}}{85},7
+Open-Reasoner-Zero-7B,test/intermediate_algebra/1388.json,"1,-2","-1, 2","-1, 2","1, -2"
+Open-Reasoner-Zero-7B,test/intermediate_algebra/2046.json,2,1.1,2,1.1
+Open-Reasoner-Zero-7B,test/intermediate_algebra/232.json,81,83,81,83
+Open-Reasoner-Zero-7B,test/intermediate_algebra/1063.json,1+274i,\frac{1}{137} + i,1 + 274i,\frac{1}{137} + i
+Open-Reasoner-Zero-7B,test/intermediate_algebra/754.json,\text{(B)},\text{C},\text{B},\text{C}
+Open-Reasoner-Zero-7B,test/intermediate_algebra/1797.json,2 \sqrt{5},\sqrt{5},\sqrt{5},2\sqrt{5}
+Open-Reasoner-Zero-7B,test/intermediate_algebra/2146.json,406,410,410,406
+Open-Reasoner-Zero-7B,test/intermediate_algebra/1014.json,50,5^{36/17} + 5^{32/17},5^{36/17} + 5^{32/17},50
+Open-Reasoner-Zero-7B,test/intermediate_algebra/1350.json,14,2,14,2
+Open-Reasoner-Zero-7B,test/algebra/2427.json,10,6,6,10
+Open-Reasoner-Zero-7B,test/algebra/1072.json,\frac{243}{625},\frac{730}{1875},\frac{730}{1875},\frac{729}{1875}
+Open-Reasoner-Zero-7B,test/algebra/2700.json,\frac{3}{2},\frac{3}{4},\frac{3}{2},\frac{3}{4}
+Open-Reasoner-Zero-7B,test/algebra/1787.json,8,12,12,8
+Open-Reasoner-Zero-7B,test/algebra/2064.json,81,71,81,71
+Open-Reasoner-Zero-7B,test/algebra/1184.json,129,157,129,157
+Open-Reasoner-Zero-7B,test/algebra/2277.json,0,5,5,0
+Open-Reasoner-Zero-7B,test/number_theory/631.json,36,4860,36,4860
+Open-Reasoner-Zero-7B,test/number_theory/203.json,14,15,14,15
+Open-Reasoner-Zero-7B,test/number_theory/928.json,3,2,2,3
+Open-Reasoner-Zero-7B,test/number_theory/679.json,59,0,0,59
+Open-Reasoner-Zero-7B,test/prealgebra/1356.json,\frac{4}{9},\frac{1}{3},\frac{4}{9},\frac{1}{3}
+Open-Reasoner-Zero-7B,test/prealgebra/1908.json,3,1,1,3
+Open-Reasoner-Zero-7B,test/prealgebra/378.json,10,16,16,10
+Open-Reasoner-Zero-7B,test/prealgebra/1961.json,\frac{16}{27},\frac{2}{27},\frac{16}{27},\frac{2}{27}
+Open-Reasoner-Zero-7B,test/prealgebra/465.json,5,10800,10800,5
+Open-Reasoner-Zero-7B,test/prealgebra/1353.json,4,3,4,3
+Open-Reasoner-Zero-7B,test/prealgebra/1865.json,12,12^{\text{th}} \text{ grade},12,12^{\text{th}} \text{ grade}
+Open-Reasoner-Zero-7B,test/geometry/434.json,28,56,56,28
+Open-Reasoner-Zero-7B,test/geometry/172.json,8,18,18,8
+Open-Reasoner-Zero-7B,test/geometry/226.json,180^\circ,180,180^\circ,180
+Open-Reasoner-Zero-7B,test/geometry/465.json,120,120^\circ,120,120^\circ
+Open-Reasoner-Zero-7B,test/counting_and_probability/199.json,13,12,12,13
+Qwen2.5-7B,test/precalculus/1105.json,-\frac{\pi}{6},correct,correct,-\frac{\pi}{6}
+Qwen2.5-7B,test/precalculus/24313.json,\cot x,\tan x,\tan x,\cot x
+Qwen2.5-7B,test/precalculus/44.json,120^\circ,60^\circ,60^\circ,120^\circ
+Qwen2.5-7B,test/precalculus/986.json,144,36,36,144
+Qwen2.5-7B,test/precalculus/659.json,5x - 7y + 11z + 4 = 0,-5x + 8y - 11z - 3 = 0,-5x + 8y - 11z - 3 = 0,5x - 7y + 11z + 4 = 0
+Qwen2.5-7B,test/precalculus/881.json,\begin{pmatrix} -18 \\ -49 \\ 96 \end{pmatrix},\begin{pmatrix} 6 \\ -35 \\ 108 \end{pmatrix},\begin{pmatrix} 6 \\ -35 \\ 108 \end{pmatrix},\begin{pmatrix} -18 \\ -49 \\ 96 \end{pmatrix}
+Qwen2.5-7B,test/precalculus/742.json,\frac{9}{100},-0.09,-0.09,\frac{9}{100}
+Qwen2.5-7B,test/precalculus/801.json,55^\circ,41^\circ,55^\circ,41^\circ
+Qwen2.5-7B,test/precalculus/1291.json,1 - 12i,-9 + 2i,-9 + 2i,1 - 12i
+Qwen2.5-7B,test/precalculus/145.json,\begin{pmatrix} -7 \\ 16 \\ 5 \end{pmatrix},\begin{pmatrix} 18 \\ -6 \\ 60 \end{pmatrix},\begin{pmatrix} -7 \\ 16 \\ 5 \end{pmatrix},\begin{pmatrix} 18 \\ -6 \\ 60 \end{pmatrix}
+Qwen2.5-7B,test/precalculus/499.json,"\left[ \frac{\pi^2}{8}, \frac{5 \pi^2}{4} \right]","\left[ \frac{\pi^2}{8}, \frac{\pi^2}{4} \right]","\left[ \frac{\pi^2}{8}, \frac{\pi^2}{4} \right]","\left[ \frac{\pi^2}{8}, \frac{5\pi^2}{4} \right]"
+Qwen2.5-7B,test/precalculus/323.json,y = 2x + 3,y = 4x + 1,y = 4x + 1,y = 2x + 3
+Qwen2.5-7B,test/precalculus/703.json,8 \pi,4\pi,4\pi,8\pi
+Qwen2.5-7B,test/intermediate_algebra/1388.json,"1,-2",\text{No such integers},"1, -2",\text{No such integers}
+Qwen2.5-7B,test/intermediate_algebra/128.json,\text{even},\text{odd},\text{even},\text{odd}
+Qwen2.5-7B,test/intermediate_algebra/1126.json,16,11 + 2\sqrt{133},11 + 2\sqrt{133},16
+Qwen2.5-7B,test/intermediate_algebra/1151.json,1,\sqrt{2},\sqrt{2},1
+Qwen2.5-7B,test/intermediate_algebra/1408.json,-2,2,-2,2
+Qwen2.5-7B,test/intermediate_algebra/966.json,16,12\sqrt[3]{4},16,12\sqrt[3]{4}
+Qwen2.5-7B,test/intermediate_algebra/991.json,3,\frac{68}{3},\frac{68}{3},3
+Qwen2.5-7B,test/intermediate_algebra/2196.json,\frac{1}{4},\frac{1}{7},\frac{1}{7},\frac{1}{4}
+Qwen2.5-7B,test/intermediate_algebra/591.json,24,6r + 24,6r + 24,24
+Qwen2.5-7B,test/intermediate_algebra/90.json,898,1051,1051,898
+Qwen2.5-7B,test/intermediate_algebra/754.json,\text{(B)},\textbf{(B)}\ 3(1 + r/10)^x = 7,\text{B},\textbf{(B)}\ 3(1 + r/10)^x = 7
+Qwen2.5-7B,test/intermediate_algebra/2152.json,0,3,3,0
+Qwen2.5-7B,test/intermediate_algebra/1566.json,2k,2a + b + c + k,2k,2a + b + c + k
+Qwen2.5-7B,test/intermediate_algebra/1405.json,16 \sqrt{3},4,16\sqrt{3},4
+Qwen2.5-7B,test/intermediate_algebra/1111.json,\frac{20000}{\pi},\frac{40000}{\pi},\frac{40000}{\pi},\frac{20000}{\pi}
+Qwen2.5-7B,test/intermediate_algebra/1014.json,50,5^{28/15} (1 + 5^{4/15}),5^{28/15} (1 + 5^{4/15}),50
+Qwen2.5-7B,test/intermediate_algebra/158.json,27648,\frac{1}{20736},27648,\frac{1}{20736}
+Qwen2.5-7B,test/intermediate_algebra/1365.json,15,-p,-p,15
+Qwen2.5-7B,test/intermediate_algebra/1981.json,"(2,12) \cup (12,102)","(-\infty, 2) \cup (2, 12)","(-\infty, 2) \cup (2, 12)","(2, 12) \cup (12, 102)"
+Qwen2.5-7B,test/algebra/305.json,5,7,5,7
+Qwen2.5-7B,test/algebra/2046.json,x^3+3x-6,x^4 + 3x^3 - 3x^2 + 3x - 6,x^3 + 3x - 6,x^4 + 3x^3 - 3x^2 + 3x - 6
+Qwen2.5-7B,test/algebra/2700.json,\frac{3}{2},\frac{1}{5},\frac{1}{5},\frac{3}{2}
+Qwen2.5-7B,test/algebra/246.json,8,2,2,8
+Qwen2.5-7B,test/algebra/2517.json,-\frac{35}{9},-\frac{323}{9},-\frac{35}{9},-\frac{323}{9}
+Qwen2.5-7B,test/algebra/1082.json,23,12,23,12
+Qwen2.5-7B,test/algebra/2626.json,"\$32,\!348",25228,25228,32348
+Qwen2.5-7B,test/algebra/2486.json,"\left(\frac{3}{5},\frac{8}{3}\right]",\frac{3}{5},\frac{3}{5},"\left(\frac{3}{5}, \frac{8}{3}\right]"
+Qwen2.5-7B,test/algebra/1457.json,-120,\frac{55}{4},-120,\frac{55}{4}
+Qwen2.5-7B,test/algebra/1199.json,1,f^{-1}(f^{-1}(6))=1,f^{-1}(f^{-1}(6))=1,1
+Qwen2.5-7B,test/algebra/849.json,18,30,30,18
+Qwen2.5-7B,test/algebra/776.json,-2,8,-2,8
+Qwen2.5-7B,test/algebra/1553.json,3,"1, 2, 3, \text{ or } 4","1, 2, 3, \text{ or } 4",3
+Qwen2.5-7B,test/algebra/2779.json,20,23,20,23
+Qwen2.5-7B,test/number_theory/864.json,52_8,66_8,66_8,52_8
+Qwen2.5-7B,test/number_theory/1055.json,203,256,203,256
+Qwen2.5-7B,test/number_theory/357.json,21,3,21,3
+Qwen2.5-7B,test/number_theory/753.json,13,15,13,15
+Qwen2.5-7B,test/number_theory/521.json,18,14,14,18
+Qwen2.5-7B,test/number_theory/183.json,14,28,14,28
+Qwen2.5-7B,test/number_theory/1287.json,8,4,4,8
+Qwen2.5-7B,test/number_theory/820.json,8,40,40,8
+Qwen2.5-7B,test/number_theory/109.json,4,2,2,4
+Qwen2.5-7B,test/number_theory/1000.json,44,5,44,5
+Qwen2.5-7B,test/number_theory/22.json,2,1,1,2
+Qwen2.5-7B,test/prealgebra/1686.json,4,3,4,3
+Qwen2.5-7B,test/prealgebra/1908.json,3,0,3,0
+Qwen2.5-7B,test/prealgebra/1251.json,8,11,11,8
+Qwen2.5-7B,test/prealgebra/1995.json,\frac{8}{21},\frac{4}{21},\frac{8}{21},\frac{4}{21}
+Qwen2.5-7B,test/prealgebra/260.json,36^\circ,72^\circ,72^\circ,36^\circ
+Qwen2.5-7B,test/prealgebra/1423.json,12\pi,correct,12\pi,correct
+Qwen2.5-7B,test/prealgebra/631.json,2,1.5,1.5,2
+Qwen2.5-7B,test/prealgebra/2019.json,4.5,correct,correct,4.5
+Qwen2.5-7B,test/prealgebra/805.json,41,36,41,36
+Qwen2.5-7B,test/geometry/434.json,28,62,28,62
+Qwen2.5-7B,test/geometry/627.json,17,5,5,17
+Qwen2.5-7B,test/geometry/1140.json,\frac{3840}{289},30,30,\frac{3840}{289}
+Qwen2.5-7B,test/geometry/221.json,30,5\sqrt{26},5\sqrt{26},30
+Qwen2.5-7B,test/geometry/226.json,180^\circ,180,180,180^\circ
+Qwen2.5-7B,test/geometry/795.json,\frac{\sqrt{21}}{5},\frac{5\sqrt{21}}{21},\frac{\sqrt{21}}{5},\frac{5\sqrt{21}}{21}
+Qwen2.5-7B,test/counting_and_probability/894.json,540,432,432,540
+Qwen2.5-7B,test/counting_and_probability/25149.json,63,16,63,16
+Qwen2.5-7B,test/counting_and_probability/116.json,4495,4505,4505,4495
+Qwen2.5-7B,test/counting_and_probability/188.json,\frac{1}{2},\frac{1}{18},\frac{1}{2},\frac{1}{18}
+Qwen2.5-7B,test/counting_and_probability/10.json,4,3,4,3
+Qwen2.5-7B-Instruct,test/precalculus/1199.json,\pi,\frac{\pi}{2},\pi,\frac{\pi}{2}
+Qwen2.5-7B-Instruct,test/precalculus/285.json,6,3,6,3
+Qwen2.5-7B-Instruct,test/precalculus/675.json,4,\sqrt{\frac{17 + \sqrt{257}}{2}},4,\sqrt{\frac{17 + \sqrt{257}}{2}}
+Qwen2.5-7B-Instruct,test/precalculus/1172.json,7,6.79,7,6.79
+Qwen2.5-7B-Instruct,test/precalculus/826.json,\frac{1}{16},\frac{1}{16384},\frac{1}{16384},\frac{1}{16}
+Qwen2.5-7B-Instruct,test/precalculus/96.json,\frac{7}{4},-\frac{7}{4},\frac{7}{4},-\frac{7}{4}
+Qwen2.5-7B-Instruct,test/precalculus/145.json,\begin{pmatrix} -7 \\ 16 \\ 5 \end{pmatrix},\begin{pmatrix} 18 \\ -6 \\ 60 \end{pmatrix},\begin{pmatrix} 18 \\ -6 \\ 60 \end{pmatrix},\begin{pmatrix} -7 \\ 16 \\ 5 \end{pmatrix}
+Qwen2.5-7B-Instruct,test/precalculus/1082.json,\frac{8}{15},2,2,\frac{8}{15}
+Qwen2.5-7B-Instruct,test/intermediate_algebra/1000.json,3,\frac{2 + \sqrt{409}}{15},\frac{2 + \sqrt{409}}{15},3
+Qwen2.5-7B-Instruct,test/intermediate_algebra/1388.json,"1,-2","-1, 2","-1, 2","1, -2"
+Qwen2.5-7B-Instruct,test/intermediate_algebra/428.json,"3, 5, 7","x = 3, x = 5, x = 7","x = 3, x = 5, x = 7","x = 3, 5, 7"
+Qwen2.5-7B-Instruct,test/intermediate_algebra/1454.json,70 \sqrt{2},\frac{20\sqrt{13} + 10\sqrt{181} + 10\sqrt{89}}{3},70\sqrt{2},\frac{20\sqrt{13} + 10\sqrt{181} + 10\sqrt{89}}{3}
+Qwen2.5-7B-Instruct,test/intermediate_algebra/2046.json,2,x \approx 2.0969,x \approx 2.0969,2
+Qwen2.5-7B-Instruct,test/intermediate_algebra/345.json,504,1,504,1
+Qwen2.5-7B-Instruct,test/intermediate_algebra/1408.json,-2,-1,-2,-1
+Qwen2.5-7B-Instruct,test/intermediate_algebra/966.json,16,12,16,12
+Qwen2.5-7B-Instruct,test/intermediate_algebra/2196.json,\frac{1}{4},1,\frac{1}{4},1
+Qwen2.5-7B-Instruct,test/intermediate_algebra/1510.json,0,16,0,16
+Qwen2.5-7B-Instruct,test/intermediate_algebra/102.json,2,1,1,2
+Qwen2.5-7B-Instruct,test/intermediate_algebra/1354.json,\frac{1997}{2},998,\frac{1997}{2},998
+Qwen2.5-7B-Instruct,test/intermediate_algebra/754.json,\text{(B)},\text{E},B,\text{E}
+Qwen2.5-7B-Instruct,test/intermediate_algebra/2152.json,0,2,2,0
+Qwen2.5-7B-Instruct,test/intermediate_algebra/1407.json,6,\frac{12}{\sqrt[3]{16}},\frac{12}{\sqrt[3]{16}},6
+Qwen2.5-7B-Instruct,test/intermediate_algebra/1797.json,2 \sqrt{5},\sqrt{5},2\sqrt{5},\sqrt{5}
+Qwen2.5-7B-Instruct,test/intermediate_algebra/2146.json,406,226,226,406
+Qwen2.5-7B-Instruct,test/intermediate_algebra/158.json,27648,\left(\frac{10}{7} \right)^7,\left(\frac{10}{7} \right)^7,27648
+Qwen2.5-7B-Instruct,test/intermediate_algebra/101.json,10,9,10,9
+Qwen2.5-7B-Instruct,test/intermediate_algebra/1930.json,\frac{1}{4},1,\frac{1}{4},1
+Qwen2.5-7B-Instruct,test/intermediate_algebra/1508.json,-1,1,-1,1
+Qwen2.5-7B-Instruct,test/algebra/2427.json,10,10001,10,10001
+Qwen2.5-7B-Instruct,test/algebra/1072.json,\frac{243}{625},\frac{5}{13},\frac{5}{13},\frac{243}{625}
+Qwen2.5-7B-Instruct,test/algebra/2700.json,\frac{3}{2},1,\frac{3}{2},1
+Qwen2.5-7B-Instruct,test/algebra/2023.json,1,3,3,1
+Qwen2.5-7B-Instruct,test/algebra/2058.json,13,12,12,13
+Qwen2.5-7B-Instruct,test/algebra/621.json,3.21,-0.61,-0.61,3.21
+Qwen2.5-7B-Instruct,test/algebra/2517.json,-\frac{35}{9},\frac{325}{9},\frac{325}{9},-\frac{35}{9}
+Qwen2.5-7B-Instruct,test/algebra/686.json,4,3,4,3
+Qwen2.5-7B-Instruct,test/algebra/2626.json,"\$32,\!348",25228,"32,348",25228
+Qwen2.5-7B-Instruct,test/algebra/346.json,7,\[ g(f(5) - 1) = 7 \],7,\[ g(f(5) - 1) = 7 \]
+Qwen2.5-7B-Instruct,test/algebra/2176.json,3,2,2,3
+Qwen2.5-7B-Instruct,test/algebra/2277.json,0,5,5,0
+Qwen2.5-7B-Instruct,test/algebra/776.json,-2,8,-2,8
+Qwen2.5-7B-Instruct,test/algebra/1553.json,3,2,3,2
+Qwen2.5-7B-Instruct,test/number_theory/45.json,23,143,23,143
+Qwen2.5-7B-Instruct,test/number_theory/1055.json,203,189,189,203
+Qwen2.5-7B-Instruct,test/number_theory/753.json,13,17,13,17
+Qwen2.5-7B-Instruct,test/number_theory/631.json,36,54000,54000,36
+Qwen2.5-7B-Instruct,test/number_theory/820.json,8,20,20,8
+Qwen2.5-7B-Instruct,test/number_theory/1185.json,6,0,0,6
+Qwen2.5-7B-Instruct,test/prealgebra/1247.json,5,15,15,5
+Qwen2.5-7B-Instruct,test/prealgebra/1512.json,7\pi,36\pi,36\pi,7\pi
+Qwen2.5-7B-Instruct,test/prealgebra/260.json,36^\circ,144^\circ,36^\circ,144^\circ
+Qwen2.5-7B-Instruct,test/prealgebra/465.json,5,8,8,5
+Qwen2.5-7B-Instruct,test/prealgebra/1865.json,12,12^{\text{th}} \text{ grade},12,12^{\text{th}} \text{ grade}
+Qwen2.5-7B-Instruct,test/prealgebra/1640.json,32,16,16,32
+Qwen2.5-7B-Instruct,test/prealgebra/1252.json,200,900,900,200
+Qwen2.5-7B-Instruct,test/geometry/434.json,28,56^\circ,56^\circ,28
+Qwen2.5-7B-Instruct,test/geometry/627.json,17,9,17,9
+Qwen2.5-7B-Instruct,test/geometry/283.json,8,12,12,8
+Qwen2.5-7B-Instruct,test/geometry/172.json,8,\frac{8}{3},8,\frac{8}{3}
+Qwen2.5-7B-Instruct,test/geometry/65.json,30^\circ,60,60,30^\circ
+Qwen2.5-7B-Instruct,test/geometry/221.json,30,5\sqrt{26},5\sqrt{26},30
+Qwen2.5-7B-Instruct,test/geometry/1097.json,63,72,63,72
+Qwen2.5-7B-Instruct,test/geometry/538.json,"(8,-2)","(-20 + 12\sqrt{5}, 26 - 12\sqrt{5}) \text{ or } (-20 - 12\sqrt{5}, 26 + 12\sqrt{5})","(-20 + 12\sqrt{5}, 26 - 12\sqrt{5}) \text{ or } (-20 - 12\sqrt{5}, 26 + 12\sqrt{5})","(8, -2)"
+Qwen2.5-7B-Instruct,test/geometry/795.json,\frac{\sqrt{21}}{5},\frac{2}{5},\frac{2}{5},\frac{\sqrt{21}}{5}
+Qwen2.5-7B-Instruct,test/counting_and_probability/666.json,225,6,6,225
+Qwen2.5-7B-Instruct,test/counting_and_probability/1060.json,1260,2520,1260,2520
+Qwen2.5-7B-Instruct,test/counting_and_probability/51.json,\frac{13}{18},\frac{2}{3},\frac{13}{18},\frac{2}{3}
+Qwen2.5-7B-Instruct,test/counting_and_probability/870.json,\frac{1}{3},\frac{1}{2},\frac{1}{2},\frac{1}{3}
+Qwen2.5-7B-Instruct,test/counting_and_probability/238.json,10080,5040,10080,5040
+Qwen2.5-7B-Instruct,test/counting_and_probability/731.json,\frac{1}{2},\frac{1}{k},\frac{1}{2},\frac{1}{k}
+Qwen2.5-Math-7B-Instruct,test/precalculus/1199.json,\pi,\frac{\pi}{2},\pi,\frac{\pi}{2}
+Qwen2.5-Math-7B-Instruct,test/precalculus/1313.json,46,28,46,28
+Qwen2.5-Math-7B-Instruct,test/precalculus/659.json,5x - 7y + 11z + 4 = 0,5x - 7y - 11z - 18 = 0,5x - 7y - 11z - 18 = 0,5x - 7y + 11z + 4 = 0
+Qwen2.5-Math-7B-Instruct,test/precalculus/1082.json,\frac{8}{15},\frac{4 + 2\sqrt{13}}{3},\frac{4 + 2\sqrt{13}}{3},\frac{8}{15}
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/431.json,(a+5)(b+2),(b + 2)(a + 5),(b + 2)(a + 5),(a + 5)(b + 2)
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/128.json,\text{even},\text{odd},\text{odd},\text{even}
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/966.json,16,24,16,24
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/2196.json,\frac{1}{4},\frac{\sqrt[4]{2}}{8},\frac{1}{4},\frac{\sqrt[4]{2}}{8}
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/1123.json,\frac{10}{11},\frac{10}{9},\frac{10}{11},\frac{10}{9}
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/754.json,\text{(B)},\text{E},\text{E},\text{B}
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/860.json,\text{ellipse},\text{circle},\text{circle},\text{ellipse}
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/690.json,"(1,-16,-4,43)","(1, 1, -16, -4)","(1, -16, -4, 43)","(1, 1, -16, -4)"
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/2146.json,406,356,406,356
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/1014.json,50,10,50,10
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/158.json,27648,27,27,27648
+Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/1930.json,\frac{1}{4},\frac{1}{2},\frac{1}{2},\frac{1}{4}
+Qwen2.5-Math-7B-Instruct,test/algebra/873.json,33,35,35,33
+Qwen2.5-Math-7B-Instruct,test/algebra/297.json,1736,-4096,-4096,1736
+Qwen2.5-Math-7B-Instruct,test/algebra/733.json,6,\frac{3 + \sqrt{33}}{2},6,\frac{3 + \sqrt{33}}{2}
+Qwen2.5-Math-7B-Instruct,test/algebra/2277.json,0,3 + \sqrt{3},3 + \sqrt{3},0
+Qwen2.5-Math-7B-Instruct,test/algebra/1553.json,3,5,3,5
+Qwen2.5-Math-7B-Instruct,test/number_theory/1032.json,2220,2022,2220,2022
+Qwen2.5-Math-7B-Instruct,test/number_theory/417.json,"11,\! 111,\! 111,\! 100",11100,11111111100,11100
+Qwen2.5-Math-7B-Instruct,test/number_theory/533.json,1030,94,1030,94
+Qwen2.5-Math-7B-Instruct,test/number_theory/203.json,14,12,14,12
+Qwen2.5-Math-7B-Instruct,test/number_theory/911.json,3,8,8,3
+Qwen2.5-Math-7B-Instruct,test/number_theory/22.json,2,21,2,21
+Qwen2.5-Math-7B-Instruct,test/prealgebra/951.json,12,\frac{4}{3},12,\frac{4}{3}
+Qwen2.5-Math-7B-Instruct,test/prealgebra/1233.json,10,10\%,10\%,10
+Qwen2.5-Math-7B-Instruct,test/prealgebra/1804.json,29,88.5,88.5,29
+Qwen2.5-Math-7B-Instruct,test/prealgebra/260.json,36^\circ,36,36^\circ,36
+Qwen2.5-Math-7B-Instruct,test/prealgebra/465.json,5,40,40,5
+Qwen2.5-Math-7B-Instruct,test/prealgebra/1187.json,21,35,21,35
+Qwen2.5-Math-7B-Instruct,test/prealgebra/1865.json,12,12^{\text{th}},12,12^{\text{th}}
+Qwen2.5-Math-7B-Instruct,test/prealgebra/631.json,2,\sqrt{2},2,\sqrt{2}
+Qwen2.5-Math-7B-Instruct,test/prealgebra/1227.json,60,105,105,60
+Qwen2.5-Math-7B-Instruct,test/geometry/434.json,28,56,56,28
+Qwen2.5-Math-7B-Instruct,test/geometry/229.json,16,12,12,16
+Qwen2.5-Math-7B-Instruct,test/geometry/347.json,76^\circ,76,76^\circ,76
+Qwen2.5-Math-7B-Instruct,test/geometry/965.json,28,21,28,21
+Qwen2.5-Math-7B-Instruct,test/geometry/947.json,-\frac{24}{25},\frac{24}{25},-\frac{24}{25},\frac{24}{25}
+Qwen2.5-Math-7B-Instruct,test/counting_and_probability/430.json,\frac{1}{3},\frac{1}{6},\frac{1}{6},\frac{1}{3}
+Qwen2.5-Math-7B-Instruct,test/counting_and_probability/238.json,10080,630,10080,630

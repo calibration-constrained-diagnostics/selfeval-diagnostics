@@ -1,0 +1,101 @@
+dataset,model,problem_id,gold,ans_a,a_correct,ans_b,b_correct
+Math500,Qwen2.5-7B,test/precalculus/695.json,"(-\infty, 0]","(-\infty, 0]",True,"(-\infty, 0]",True
+Math500,Qwen2.5-7B-Instruct,test/algebra/2743.json,29,29,True,29,True
+Math500,Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/1063.json,1+274i,,,37164,False
+Math360,Qwen2.5-32B-Instruct,algebra_systems_e1,"x = 3, y = 2",,,"(3, 2)",False
+Math500,JiuZhang3.0-7B,test/algebra/849.json,18,18,True,18,True
+Math360,s1.1-7B,geometry_plane_h3,4.695 cm,supposed to be 21√5 /10≈4,False,\dfrac{21\sqrt{5}}{10},False
+Math500,Ministral-8B-Instruct-2410,test/number_theory/1065.json,17,,,3,False
+Math360,JiuZhang3.0-7B,numbertheory_sequences_h2,aₙ = 2·2ⁿ + 3ⁿ,,,0,False
+Math500,Qwen2.5-Math-7B-Instruct,test/precalculus/1300.json,\begin{pmatrix} -1/3 \\ 2/3 \\ 5/3 \end{pmatrix},\begin{pmatrix} -\frac{1}{3} \\ \frac{2}{3} \\ \frac{5}{3} \end{pmatrix},False,\begin{pmatrix} -\frac{1}{3} \\ \frac{2}{3} \\ \frac{5}{3} \end{pmatrix},False
+Math500,JiuZhang3.0-7B,test/intermediate_algebra/1797.json,2 \sqrt{5},\frac{\sqrt{369}}{5},False,2\sqrt{5},True
+Math360,JiuZhang3.0-7B,numbertheory_sequences_e3,21,21,True,31,False
+Math500,Qwen2.5-Math-7B-Instruct,test/prealgebra/1353.json,4,4,True,4,True
+Math360,s1.1-7B,combinatorics_counting_e3,625,625,True,625,True
+Math500,Qwen2.5-7B-Instruct,test/counting_and_probability/282.json,\frac{1}{2},\frac{1}{3},False,\frac{1}{4},False
+Math500,Ministral-8B-Instruct-2410,test/prealgebra/1930.json,7,2.5,False,6,False
+Math500,JiuZhang3.0-7B,test/algebra/246.json,8,8,True,8,True
+Math500,Qwen2.5-7B,test/algebra/733.json,6,\text{No intersection within the considered intervals},False,,
+Math500,Qwen2.5-Math-7B-Instruct,test/algebra/988.json,11,11,True,11,True
+Math500,Qwen2.5-Math-7B-Instruct,test/number_theory/928.json,3,3,True,3,True
+Math360,s1.1-7B,calculus_applications_m2,3-Aug,\dfrac{8}{3},False,\dfrac{8}{3},False
+Math500,Qwen2.5-Math-7B-Instruct,test/counting_and_probability/1060.json,1260,840,False,840,False
+Math500,Qwen2.5-7B,test/precalculus/323.json,y = 2x + 3,y = 4x + 1,False,y = 2x + 3,True
+Math500,Llama-3.1-8B-Instruct,test/algebra/101.json,"x \in [-2,7]","[-2, 7]",False,"[-2, 7]",False
+Math500,Llama-3.1-8B-Instruct,test/algebra/853.json,12,4,False,5,False
+Math500,Llama-3.1-8B-Instruct,test/intermediate_algebra/1279.json,\frac{2}{1005},-2,False,-\frac{1005}{2010},False
+Math500,Qwen2.5-7B,test/prealgebra/977.json,23,23,True,23,True
+Math500,JiuZhang3.0-7B,test/prealgebra/1252.json,200,200,True,200,True
+Math500,Qwen2.5-Math-7B-Instruct,test/precalculus/768.json,3 \pm 2 \sqrt{2},,,"3 + 2\sqrt{2}, 3 - 2\sqrt{2}",False
+Math360,Qwen2.5-32B-Instruct,statistics_regression_m1,y = 0.9x + 1.3,,,y = 0.9x + 1.3,True
+Math360,JiuZhang3.0-7B,algebra_inequalities_e1,x > 4,x > 4,True,4,False
+Math500,Qwen2.5-Math-7B-Instruct,test/number_theory/820.json,8,8,True,8,True
+Math500,Llama-3.1-8B-Instruct,test/counting_and_probability/525.json,144,,,576,False
+Math500,JiuZhang3.0-7B,test/prealgebra/307.json,240,240,True,240,True
+Math500,JiuZhang3.0-7B,test/number_theory/911.json,3,,,0,False
+Math360,Qwen2.5-32B-Instruct,statistics_hypothesis_e3,1.645,,,1.65,False
+Math360,Qwen2.5-32B-Instruct,arithmetic_percentages_h2,"8,000",8421,False,,
+Math360,s1.1-7B,geometry_transformations_e2,"(7, 5)","(7, 5)",True,"(7, 5)",True
+Math500,Ministral-8B-Instruct-2410,test/intermediate_algebra/2152.json,0,2,False,2,False
+Math500,Qwen2.5-7B-Instruct,test/prealgebra/1458.json,\frac{1}{8},\frac{1}{8},True,\frac{1}{8},True
+Math500,Qwen2.5-7B-Instruct,test/algebra/2592.json,26000,26000,True,26000,True
+Math500,Qwen2.5-Math-7B-Instruct,test/prealgebra/1044.json,5.4 \text{ cents},5.4,False,4.8,False
+Math360,JiuZhang3.0-7B,linearalgebra_vectorspaces_h3,Infinite dimensional,1,False,,
+Math360,JiuZhang3.0-7B,arithmetic_fractions_h2,3/5,\frac{3}{5},True,\frac{3}{4},False
+Math360,JiuZhang3.0-7B,arithmetic_percentages_h3,15.56%,15.56\%,False,15.56,False
+Math500,Qwen2.5-Math-7B-Instruct,test/counting_and_probability/230.json,\frac{2}{21},\frac{2}{21},True,\frac{2}{21},True
+Math360,s1.1-7B,algebra_polynomials_e2,x² + 5x + 6,x^2 + 5x + 6,False,x^2 + 5x + 6,False
+Math500,Qwen2.5-Math-7B-Instruct,test/counting_and_probability/134.json,720,720,True,720,True
+Math360,Qwen2.5-7B,calculus_limits_m1,3,,,3,True
+Math500,Ministral-8B-Instruct-2410,test/algebra/2043.json,"(-\infty, 2) \cup (3, \infty)",\[,False,,
+Math500,Open-Reasoner-Zero-7B,test/number_theory/1032.json,2220,2220,True,2220,True
+Math500,Qwen2.5-Math-7B-Instruct,test/counting_and_probability/389.json,28,28,True,28,True
+Math500,Open-Reasoner-Zero-7B,test/number_theory/914.json,9,9,True,9,True
+Math500,Llama-3.1-8B-Instruct,test/number_theory/1257.json,204_5,,,204_5,True
+Math360,JiuZhang3.0-7B,algebra_polynomials_h2,(x - 4)(x - 1)(x + 2),(x-3)(x^2-2),False,,
+Math500,Qwen2.5-Math-7B-Instruct,test/prealgebra/954.json,10,10,True,10,True
+Math500,Ministral-8B-Instruct-2410,test/prealgebra/951.json,12,12,True,,
+Math500,Ministral-8B-Instruct-2410,test/algebra/988.json,11,11,True,,
+Math500,Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/776.json,3,3,True,,
+Math360,Qwen2.5-7B,statistics_descriptive_m2,2.915,2.61,False,2.61,False
+Math500,Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/1898.json,-5,-5,True,-5,True
+Math360,Qwen2.5-32B-Instruct,algebra_polynomials_h2,(x - 4)(x - 1)(x + 2),,,(x - 1)(x - 4)(x + 2),False
+Math500,Qwen2.5-7B-Instruct,test/prealgebra/1742.json,\dfrac{33}{100},\frac{33}{100},True,\frac{33}{100},True
+Math360,Qwen2.5-32B-Instruct,combinatorics_probability_m3,12/35,,,\frac{12}{35},True
+Math500,Qwen2.5-Math-7B-Instruct,test/algebra/187.json,3,3,True,3,True
+Math500,Qwen2.5-7B,test/counting_and_probability/238.json,10080,"1260 ways to seat 8 people around a square table with 2 people on a side, considering the rotational symmetry",False,,
+Math500,JiuZhang3.0-7B,test/algebra/824.json,12,,,12,True
+Math500,Qwen2.5-7B-Instruct,test/counting_and_probability/1114.json,\frac{11}{36},\frac{11}{36},True,\frac{11}{36},True
+Math500,Ministral-8B-Instruct-2410,test/geometry/254.json,3,3,True,,
+Math500,JiuZhang3.0-7B,test/number_theory/1065.json,17,9,False,17,True
+Math360,Qwen2.5-32B-Instruct,combinatorics_permutations_m2,60,60,True,,
+Math360,JiuZhang3.0-7B,numbertheory_primes_e2,Yes,37,False,37,False
+Math500,Ministral-8B-Instruct-2410,test/prealgebra/2057.json,90,,,90,True
+Math500,Open-Reasoner-Zero-7B,test/intermediate_algebra/1365.json,15,15,True,15,True
+Math500,Open-Reasoner-Zero-7B,test/prealgebra/805.json,41,41,True,41,True
+Math360,JiuZhang3.0-7B,linearalgebra_determinants_e3,45,45,True,45,True
+Math500,Qwen2.5-7B,test/prealgebra/1044.json,5.4 \text{ cents},,,5.4,False
+Math500,Qwen2.5-Math-7B-Instruct,test/algebra/2570.json,2107,2107,True,2107,True
+Math360,Qwen2.5-32B-Instruct,arithmetic_order_m1,6,6,True,6,True
+Math500,Open-Reasoner-Zero-7B,test/intermediate_algebra/1217.json,x^5 - x^4 + x^3 - x^2 + x - 1,x^5 - x^4 + x^3 - x^2 + x - 1,True,x^5 - x^4 + x^3 - x^2 + x - 1,True
+Math500,Open-Reasoner-Zero-7B,test/prealgebra/260.json,36^\circ,36^\circ,True,36^\circ,True
+Math500,Llama-3.1-8B-Instruct,test/precalculus/1146.json,\frac{35}{64},,,\frac{35}{128},False
+Math500,Llama-3.1-8B-Instruct,test/prealgebra/1924.json,2k+2,2 + 2k,False,,
+Math360,JiuZhang3.0-7B,arithmetic_order_m1,6,,,6,True
+Math360,s1.1-7B,linearalgebra_determinants_m3,12,\(\boxed{12}\),False,12,True
+Math500,JiuZhang3.0-7B,test/algebra/170.json,11,11,True,11,True
+Math500,JiuZhang3.0-7B,test/algebra/109.json,0,0,True,0,True
+Math500,Qwen2.5-Math-7B-Instruct,test/precalculus/902.json,\sqrt{66},5,False,,
+Math500,JiuZhang3.0-7B,test/counting_and_probability/1060.json,1260,2520,False,1260,True
+Math500,Qwen2.5-7B-Instruct,test/prealgebra/1733.json,-9,3,False,1,False
+Math360,s1.1-7B,numbertheory_diophantine_e1,"Infinitely many: (x, y) = (10-k, k) for any integer k","\{(x, 10 - x) \mid x \in \mathbb{Z}\}",False,,
+Math360,JiuZhang3.0-7B,statistics_hypothesis_e3,1.645,1.645,True,,
+Math360,JiuZhang3.0-7B,linearalgebra_eigenvalues_e2,"(1, 0) for λ = 2, (0, 1) for λ = 3","Eigenvectors: [1, 0], [0, 1]",False,"[2,3]",False
+Math500,JiuZhang3.0-7B,test/number_theory/1055.json,203,424,False,1708,False
+Math500,Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/90.json,898,312,False,256,False
+Math500,JiuZhang3.0-7B,test/precalculus/675.json,4,1,False,3,False
+Math500,Ministral-8B-Instruct-2410,test/counting_and_probability/389.json,28,28,True,28,True
+Math360,Qwen2.5-32B-Instruct,combinatorics_combinations_m1,4410,4410,True,4410,True
+Math500,Ministral-8B-Instruct-2410,test/algebra/776.json,-2,0,False,,
+Math500,Qwen2.5-7B,test/algebra/1184.json,129,157,False,150,False
+Math500,Llama-3.1-8B-Instruct,test/number_theory/22.json,2,2,True,2,True

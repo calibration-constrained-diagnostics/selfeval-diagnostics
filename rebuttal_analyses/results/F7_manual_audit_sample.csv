@@ -1,0 +1,101 @@
+dataset,model,problem_id,gold,ans_a,a_correct,ans_b,b_correct
+Math500,Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/752.json,3,3,True,3,True
+Math360,Qwen2.5-32B-Instruct,algebra_equations_m2,x = 22,,,22,True
+Math500,Llama-3.1-8B-Instruct,test/intermediate_algebra/1350.json,14,,,0,False
+Math360,JiuZhang3.0-7B,geometry_plane_e3,35 cm²,35,True,35,True
+Math500,Qwen2.5-7B-Instruct,test/algebra/509.json,\frac{13}{6},\dfrac{13}{6},True,\dfrac{13}{6},True
+Math360,Qwen2.5-32B-Instruct,calculus_series_h2,Convergent,\text{Converges},False,,
+Math500,Qwen2.5-Math-7B-Instruct,test/counting_and_probability/765.json,110,110,True,110,True
+Math500,Qwen2.5-7B,test/number_theory/239.json,2,2,True,2,True
+Math500,JiuZhang3.0-7B,test/intermediate_algebra/1555.json,12,12,True,13,False
+Math360,s1.1-7B,combinatorics_recursion_m3,49,,,242,False
+Math500,Open-Reasoner-Zero-7B,test/prealgebra/1251.json,8,8,True,8,True
+Math500,Open-Reasoner-Zero-7B,test/prealgebra/1991.json,\text{Navin},\text{Navin},True,\text{Navin},True
+Math500,Ministral-8B-Instruct-2410,test/algebra/346.json,7,correctly \( 7 \),False,,
+Math500,Ministral-8B-Instruct-2410,test/counting_and_probability/10.json,4,4,True,,
+Math500,JiuZhang3.0-7B,test/number_theory/417.json,"11,\! 111,\! 111,\! 100",,,incorrect,False
+Math500,Ministral-8B-Instruct-2410,test/algebra/101.json,"x \in [-2,7]","\( x \in [-2, 7] \)",True,,
+Math500,Qwen2.5-7B-Instruct,test/prealgebra/505.json,6,6,True,,
+Math500,Open-Reasoner-Zero-7B,test/algebra/2593.json,8000,8000,True,8000,True
+Math500,JiuZhang3.0-7B,test/prealgebra/977.json,23,23,True,23,True
+Math500,Open-Reasoner-Zero-7B,test/algebra/346.json,7,7,True,7,True
+Math500,Qwen2.5-7B,test/algebra/2214.json,4,4,True,4,True
+Math500,Qwen2.5-7B,test/precalculus/703.json,8 \pi,4\pi,False,8\pi,True
+Math500,Open-Reasoner-Zero-7B,test/number_theory/691.json,255,255,True,255,True
+Math500,Qwen2.5-7B-Instruct,test/intermediate_algebra/117.json,15,-15,False,\frac{37}{2},False
+Math500,Qwen2.5-Math-7B-Instruct,test/algebra/2551.json,10,10,True,10,True
+Math500,Qwen2.5-Math-7B-Instruct,test/precalculus/801.json,55^\circ,37^\circ,False,53^\circ,False
+Math360,s1.1-7B,algebra_polynomials_m3,-5,-5,True,-5,True
+Math500,Qwen2.5-7B-Instruct,test/number_theory/483.json,3,3,True,3,True
+Math500,Llama-3.1-8B-Instruct,test/prealgebra/1555.json,5,,,5,True
+Math500,Open-Reasoner-Zero-7B,test/intermediate_algebra/662.json,1 \pm \sqrt{19},,,"1, 3",False
+Math500,Qwen2.5-7B-Instruct,test/algebra/1265.json,\frac{3}{2},\frac{3}{2},True,\frac{3}{2},True
+Math500,Qwen2.5-Math-7B-Instruct,test/precalculus/625.json,\begin{pmatrix} 16/49 \\ 48/49 \\ 24/49 \end{pmatrix},\begin{pmatrix} \frac{16}{49} \\ \frac{48}{49} \\ \frac{24}{49} \end{pmatrix},False,\begin{pmatrix} \frac{16}{49} \\ \frac{48}{49} \\ \frac{24}{49} \end{pmatrix},False
+Math500,Ministral-8B-Instruct-2410,test/prealgebra/192.json,2,x = 2,True,,
+Math500,Qwen2.5-Math-7B-Instruct,test/prealgebra/1128.json,64,32,False,128,False
+Math500,Qwen2.5-Math-7B-Instruct,test/algebra/24.json,2000,2000,True,2000,True
+Math500,Open-Reasoner-Zero-7B,test/precalculus/779.json,-2 + 7i,-2 + 7i,True,-2 + 7i,True
+Math500,Open-Reasoner-Zero-7B,test/algebra/1529.json,1,1,True,1,True
+Math500,Open-Reasoner-Zero-7B,test/intermediate_algebra/117.json,15,205,False,-35,False
+Math500,JiuZhang3.0-7B,test/algebra/1143.json,17,81,False,17,True
+Math360,JiuZhang3.0-7B,calculus_applications_e3,7,7,True,"correct, and the slope of the tangent line to the curve y = x² + 3x at the point (2, 10) is 7",False
+Math500,Ministral-8B-Instruct-2410,test/prealgebra/1423.json,12\pi,12 \pi \text{ inches per second},False,,
+Math500,Open-Reasoner-Zero-7B,test/number_theory/239.json,2,2,True,2,True
+Math500,Qwen2.5-7B-Instruct,test/number_theory/686.json,4,4,True,4,True
+Math500,Open-Reasoner-Zero-7B,test/prealgebra/1113.json,60,60,True,60,True
+Math500,JiuZhang3.0-7B,test/precalculus/1146.json,\frac{35}{64},0,False,,
+Math500,Llama-3.1-8B-Instruct,test/number_theory/427.json,25,18,False,,
+Math500,Open-Reasoner-Zero-7B,test/prealgebra/1203.json,\$36,36,True,36,True
+Math500,JiuZhang3.0-7B,test/algebra/1338.json,66,66,True,66,True
+Math500,Qwen2.5-Math-7B-Instruct,test/prealgebra/1555.json,5,5,True,5,True
+Math500,Qwen2.5-7B-Instruct,test/algebra/1255.json,6,,,6,True
+Math500,Llama-3.1-8B-Instruct,test/geometry/465.json,120,60,False,,
+Math500,Qwen2.5-7B-Instruct,test/algebra/2780.json,\$18.90,18.90,True,18.90,True
+Math500,Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/1407.json,6,6,True,,
+Math500,Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/1197.json,\frac{3}{56},\frac{8}{9},False,\frac{1}{2},False
+Math500,Qwen2.5-7B,test/precalculus/1133.json,3R^2,\frac{4}{3}(a^2 + b^2 + c^2 + 3R^2),False,\frac{4}{9} (a^2 + b^2 + c^2),False
+Math500,Qwen2.5-7B,test/prealgebra/1804.json,29,29,True,,
+Math500,JiuZhang3.0-7B,test/intermediate_algebra/1014.json,50,50,True,30,False
+Math500,Open-Reasoner-Zero-7B,test/intermediate_algebra/558.json,"(3,4]",2,False,2,False
+Math500,Open-Reasoner-Zero-7B,test/intermediate_algebra/1354.json,\frac{1997}{2},\frac{1997}{2},True,998.5,True
+Math500,Open-Reasoner-Zero-7B,test/prealgebra/914.json,75^\circ,105^\circ,False,35^\circ,False
+Math500,Qwen2.5-Math-7B-Instruct,test/geometry/229.json,16,12,False,16,True
+Math360,JiuZhang3.0-7B,algebra_systems_m2,"x = 1, y = 4 or x = 4, y = 1",,,"(1,4),(4,1)",False
+Math500,Ministral-8B-Instruct-2410,test/number_theory/89.json,900,900,True,,
+Math360,Qwen2.5-7B,algebra_inequalities_h2,-2 ≤ x < -1 or -1 < x ≤ 2,"(-\infty, -2] \cup [-1, 2]",False,"(-\infty, -2] \cup (-1, 2]",False
+Math500,Qwen2.5-7B,test/number_theory/1002.json,1440,,,1297,False
+Math500,Qwen2.5-7B-Instruct,test/algebra/849.json,18,18,True,18,True
+Math360,Qwen2.5-7B,arithmetic_fractions_h3,26 2/3,\frac{80}{3},False,correct,False
+Math500,Qwen2.5-Math-7B-Instruct,test/intermediate_algebra/1422.json,4,4,True,4,True
+Math360,Qwen2.5-7B,arithmetic_basic_operations_e3,312,,,312,True
+Math500,Qwen2.5-7B,test/precalculus/96.json,\frac{7}{4},\frac{7}{4},True,\frac{7}{4},True
+Math360,Qwen2.5-32B-Instruct,combinatorics_combinations_h3,596,696,False,596,True
+Math500,Qwen2.5-Math-7B-Instruct,test/algebra/2277.json,0,3 + \sqrt{3},False,0,True
+Math500,Qwen2.5-Math-7B-Instruct,test/geometry/711.json,1+2\sqrt{3},2 + 2\sqrt{3},False,3\sqrt{3} + \frac{2\sqrt{2}}{3},False
+Math500,Qwen2.5-7B,test/counting_and_probability/765.json,110,105,False,107,False
+Math360,s1.1-7B,geometry_plane_h1,Proof using vector or coordinate geometry,\frac{2}{3},False,\frac{2}{3},False
+Math500,Qwen2.5-7B-Instruct,test/intermediate_algebra/1791.json,-\frac{3}{8},-\frac{3}{8},True,-\frac{3}{8},True
+Math500,Llama-3.1-8B-Instruct,test/precalculus/990.json,6 - 5i,0 - 5i,False,(-8 + 2\sqrt{2}) + ( -3 + \sqrt{2} )i,False
+Math500,Llama-3.1-8B-Instruct,test/prealgebra/1908.json,3,correct,False,,
+Math360,JiuZhang3.0-7B,combinatorics_recursion_m2,37,,,37,True
+Math500,Open-Reasoner-Zero-7B,test/algebra/2779.json,20,20,True,20,True
+Math500,Open-Reasoner-Zero-7B,test/number_theory/46.json,40_9,40_9,True,40_9,True
+Math500,Open-Reasoner-Zero-7B,test/number_theory/737.json,284,284,True,284,True
+Math500,Qwen2.5-7B,test/counting_and_probability/23957.json,210,,,210,True
+Math500,Ministral-8B-Instruct-2410,test/counting_and_probability/238.json,10080,5045,False,10080,True
+Math500,Qwen2.5-7B-Instruct,test/prealgebra/631.json,2,2,True,2,True
+Math500,Qwen2.5-Math-7B-Instruct,test/precalculus/681.json,\frac{1}{8},\frac{1}{8},True,\frac{1}{8},True
+Math500,Llama-3.1-8B-Instruct,test/precalculus/541.json,"\left( \frac{3}{2}, -13 \right)","\left(\frac{3}{2}, -13\right)",True,"\left(\frac{3}{2}, -13\right)",True
+Math360,Qwen2.5-7B,numbertheory_primes_m2,10,,,10,True
+Math500,Qwen2.5-7B-Instruct,test/geometry/795.json,\frac{\sqrt{21}}{5},\frac{2}{5},False,\frac{\sqrt{21}}{5},True
+Math360,s1.1-7B,calculus_differentiation_h3,f'(x) = 2x·sin(x⁴),2x \sin(x^4),False,2x \sin(x^4),False
+Math500,Open-Reasoner-Zero-7B,test/intermediate_algebra/362.json,40,20,False,8\sqrt{6},False
+Math500,Qwen2.5-7B-Instruct,test/prealgebra/1128.json,64,48,False,48,False
+Math360,s1.1-7B,combinatorics_recursion_e3,11,11,True,11,True
+Math500,Llama-3.1-8B-Instruct,test/algebra/1842.json,49,,,49,True
+Math500,Llama-3.1-8B-Instruct,test/intermediate_algebra/1300.json,16,16,True,16,True
+Math500,Open-Reasoner-Zero-7B,test/intermediate_algebra/1992.json,"(0,9) \cup (9,36)","(0, 9) \cup (9, 36)",True,"(0, 9) \cup (9, 36)",True
+Math500,Qwen2.5-7B-Instruct,test/prealgebra/1646.json,80,110^\circ,False,40^\circ,False
+Math500,JiuZhang3.0-7B,test/prealgebra/1203.json,\$36,36,True,,
+Math500,Llama-3.1-8B-Instruct,test/number_theory/72.json,121,,,361,False
+Math500,Ministral-8B-Instruct-2410,test/geometry/477.json,216,216,True,,

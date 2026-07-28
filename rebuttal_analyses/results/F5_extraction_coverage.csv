@@ -1,0 +1,12 @@
+dataset,model,coverage
+Math360,JiuZhang3.0-7B,0.419
+Math360,Qwen2.5-32B-Instruct,0.192
+Math360,Qwen2.5-7B,0.317
+Math360,s1.1-7B,0.789
+Math500,JiuZhang3.0-7B,0.628
+Math500,Llama-3.1-8B-Instruct,0.488
+Math500,Ministral-8B-Instruct-2410,0.248
+Math500,Open-Reasoner-Zero-7B,0.984
+Math500,Qwen2.5-7B,0.638
+Math500,Qwen2.5-7B-Instruct,0.888
+Math500,Qwen2.5-Math-7B-Instruct,0.952
